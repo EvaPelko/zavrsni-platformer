@@ -17,6 +17,7 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
 
 	# get the input direction -1, 0, 1
 	var direction = Input.get_axis("move_left", "move_right")
@@ -30,7 +31,10 @@ func _physics_process(delta):
 	# play animation
 	if is_on_floor():
 		if direction == 0:
-			animated_sprite.play("idle")
+			if Input.is_action_pressed("duck") and is_on_floor():
+				animated_sprite.play("duck")
+			else:
+				animated_sprite.play("idle")
 		else: 
 			animated_sprite.play("run")
 	else:

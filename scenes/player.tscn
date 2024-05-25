@@ -1,9 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://cx5ju1d60m2e3"]
+[gd_scene load_steps=20 format=3 uid="uid://cx5ju1d60m2e3"]
 
+[ext_resource type="Texture2D" uid="uid://bwlvygjgxatyc" path="res://my assets/sprites/player - animated-duck.png" id="1_3b4q2"]
 [ext_resource type="Texture2D" uid="uid://nr5g08a1cajp" path="res://my assets/sprites/player - animated-idle.png" id="1_ff15c"]
 [ext_resource type="Texture2D" uid="uid://bxhwj23d1blt5" path="res://my assets/sprites/player - animated-jump.png" id="2_o1fpw"]
 [ext_resource type="Texture2D" uid="uid://c8uu6msplqyr1" path="res://my assets/sprites/player - animated-run.png" id="3_a15pc"]
 [ext_resource type="Texture2D" uid="uid://o3bntloelrpm" path="res://my assets/sprites/player - animated-talk.png" id="4_7nl0d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xaiq"]
+atlas = ExtResource("1_3b4q2")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j2a7l"]
 atlas = ExtResource("1_ff15c")
@@ -51,6 +56,14 @@ region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oy4oq"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xaiq")
+}],
+"loop": true,
+"name": &"duck",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j2a7l")
@@ -105,8 +118,9 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7d8tm"]
-radius = 4.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x1q4s"]
+radius = 2.0
+height = 10.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
@@ -119,5 +133,5 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
-shape = SubResource("CircleShape2D_7d8tm")
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_x1q4s")
