@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cx5ju1d60m2e3"]
+[gd_scene load_steps=21 format=3 uid="uid://cx5ju1d60m2e3"]
 
 [ext_resource type="Texture2D" uid="uid://bwlvygjgxatyc" path="res://my assets/sprites/player - animated-duck.png" id="1_3b4q2"]
 [ext_resource type="Texture2D" uid="uid://nr5g08a1cajp" path="res://my assets/sprites/player - animated-idle.png" id="1_ff15c"]
@@ -120,7 +120,11 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x1q4s"]
 radius = 2.0
-height = 10.0
+height = 12.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_daskb"]
+radius = 2.0
+height = 8.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
@@ -132,6 +136,10 @@ sprite_frames = SubResource("SpriteFrames_oy4oq")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
+[node name="NormalCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
 shape = SubResource("CapsuleShape2D_x1q4s")
+
+[node name="DuckCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_daskb")
