@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cx5ju1d60m2e3"]
+[gd_scene load_steps=22 format=3 uid="uid://cx5ju1d60m2e3"]
 
 [ext_resource type="Texture2D" uid="uid://bwlvygjgxatyc" path="res://my assets/sprites/player - animated-duck.png" id="1_3b4q2"]
 [ext_resource type="Texture2D" uid="uid://nr5g08a1cajp" path="res://my assets/sprites/player - animated-idle.png" id="1_ff15c"]
@@ -9,6 +9,10 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_4xaiq"]
 atlas = ExtResource("1_3b4q2")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lysp8"]
+atlas = ExtResource("2_o1fpw")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j2a7l"]
 atlas = ExtResource("1_ff15c")
@@ -62,6 +66,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"duck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lysp8")
+}],
+"loop": true,
+"name": &"fall",
 "speed": 5.0
 }, {
 "frames": [{
@@ -133,7 +145,7 @@ collision_layer = 2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_oy4oq")
-animation = &"idle"
+animation = &"fall"
 autoplay = "idle"
 
 [node name="NormalCollisionShape2D" type="CollisionShape2D" parent="."]
