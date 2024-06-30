@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4kshxr18yios"]
+[gd_scene load_steps=7 format=3 uid="uid://c4kshxr18yios"]
 
 [ext_resource type="Script" path="res://scripts/Menu.gd" id="1_lpuey"]
+[ext_resource type="Texture2D" uid="uid://clcli6ahfble6" path="res://my assets/ui/main menu/happy palette/TITLE.png" id="2_pdpoy"]
+[ext_resource type="Texture2D" uid="uid://cc5fxbdn7ncwj" path="res://my assets/ui/main menu/happy palette/white box button.png" id="3_4wu8w"]
+[ext_resource type="Texture2D" uid="uid://d38oxmrpvs1b3" path="res://my assets/ui/main menu/happy palette/blue box.png" id="4_d2bxq"]
+[ext_resource type="Texture2D" uid="uid://cwil83lcsefuk" path="res://my assets/ui/main menu/happy palette/flowers.png" id="5_ox75c"]
+[ext_resource type="Texture2D" uid="uid://c70xxvhnpheja" path="res://my assets/ui/main menu/happy palette/yellow big box.png" id="6_qwpts"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -12,27 +17,69 @@ grow_vertical = 2
 script = ExtResource("1_lpuey")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 558.0
-offset_top = 284.0
-offset_right = 628.0
-offset_bottom = 385.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 5.0
+offset_right = 28.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Play"
+size_flags_horizontal = 3
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="title" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Options"
+texture = ExtResource("2_pdpoy")
+expand_mode = 5
+stretch_mode = 4
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="play" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Quit"
+texture = ExtResource("3_4wu8w")
+stretch_mode = 4
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="new game" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_4wu8w")
+stretch_mode = 4
+
+[node name="options" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_4wu8w")
+stretch_mode = 4
+
+[node name="quit" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_4wu8w")
+stretch_mode = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="blue square" type="TextureRect" parent="MarginContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("4_d2bxq")
+stretch_mode = 4
+
+[node name="flowers" type="TextureRect" parent="MarginContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("5_ox75c")
+stretch_mode = 4
+
+[node name="yellow box" type="TextureRect" parent="MarginContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("6_qwpts")
+stretch_mode = 4
