@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="zavrsni platformer"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://scenes/house.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Music="*res://scenes/music.tscn"
+HealthUI="*res://scenes/health.tscn"
 
 [input]
 
