@@ -18,11 +18,13 @@ full_heart = ExtResource("2_tsrb0")
 empty_heart = ExtResource("3_q22cv")
 
 [node name="Heart1" type="TextureRect" parent="CanvasLayer"]
+layout_mode = 0
 offset_right = 50.0
 offset_bottom = 50.0
 texture = ExtResource("2_tsrb0")
 
 [node name="Heart2" type="TextureRect" parent="CanvasLayer"]
+layout_mode = 0
 offset_left = 52.0
 offset_top = 1.0
 offset_right = 102.0
@@ -30,6 +32,7 @@ offset_bottom = 51.0
 texture = ExtResource("2_tsrb0")
 
 [node name="Heart3" type="TextureRect" parent="CanvasLayer"]
+layout_mode = 0
 offset_left = 104.0
 offset_right = 154.0
 offset_bottom = 50.0
