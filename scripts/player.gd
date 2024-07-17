@@ -11,6 +11,8 @@ const ANTI_GRAVITY_APEX_MULTIPLIER = 0.5  # Gravity multiplier at the apex of th
 const DASH_SPEED = 400.0
 const DASH_DURATION = 0.2  # Duration of the dash in seconds
 const DASH_COOLDOWN = 0.5  # Cooldown time between dashes
+const DASH_END_FALL_VELOCITY = 200.0  # Small upward velocity added at the end of the dash
+const DASH_DECELERATION_RATE = 2000.0  # Rate at which dash speed decelerates after dash ends
 
 const COYOTE_TIME = 0.2  # Time allowed to jump after running off a ledge
 const JUMP_BUFFER_TIME = 0.2  # Time window to buffer the jump input
@@ -97,8 +99,20 @@ func _physics_process(delta):
 		if dash_time <= 0:
 			is_dashing = false
 			dash_cooldown_time = DASH_COOLDOWN
+			# After the dash ends, apply a small upward velocity to smooth the transition
+			velocity.y = DASH_END_FALL_VELOCITY
+			velocity.x = 0  # Ensure no residual dash speed
 		else:
+			# Override gravity during dash
+			velocity.y = 0
+			# Decelerate dash speed towards the end
+			var deceleration = DASH_DECELERATION_RATE * delta
+			if abs(velocity.x) > deceleration:
+				velocity.x -= sign(velocity.x) * deceleration
+			else:
+				velocity.x = 0
 			velocity.x = dash_direction * DASH_SPEED
+			animated_sprite.play("dash")
 	else:
 		dash_cooldown_time -= delta
 		if dash_cooldown_time <= 0 and Input.is_action_just_pressed("dash"):
