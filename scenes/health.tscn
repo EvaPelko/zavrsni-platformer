@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2wy7pqx5o8h2"]
 
-[ext_resource type="Script" path="res://scenes/HealthUI.gd" id="1_0fgf1"]
+[ext_resource type="Script" path="res://scripts/HealthUI.gd" id="1_m5hm4"]
 [ext_resource type="Texture2D" uid="uid://cgwuwfk4brgvq" path="res://my assets/ui/heart-full.png" id="2_tsrb0"]
 [ext_resource type="Texture2D" uid="uid://dier1jgitvkp7" path="res://my assets/ui/heart-empty.png" id="3_q22cv"]
 
@@ -13,7 +13,7 @@ offset_left = 933.0
 offset_top = 26.0
 offset_right = 933.0
 offset_bottom = 26.0
-script = ExtResource("1_0fgf1")
+script = ExtResource("1_m5hm4")
 full_heart = ExtResource("2_tsrb0")
 empty_heart = ExtResource("3_q22cv")
 

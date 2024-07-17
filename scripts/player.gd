@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 const SPEED = 120.0
 const JUMP_VELOCITY = -280.0
-const FALL_MULTIPLIER = 2.5  # Gravity multiplier for falling
+const FALL_MULTIPLIER = 1.5  # Gravity multiplier for falling
 const FALL_ANIMATION_THRESHOLD = 0.1  # Time in seconds before the fall animation plays
-const EARLY_FALL_MULTIPLIER = 5.0  # Gravity multiplier for early fall
+const EARLY_FALL_MULTIPLIER = 3.0  # Gravity multiplier for early fall
 const ANTI_GRAVITY_APEX_THRESHOLD = 30.0  # Velocity threshold for anti-gravity apex
 const ANTI_GRAVITY_APEX_MULTIPLIER = 0.5  # Gravity multiplier at the apex of the jump
 
