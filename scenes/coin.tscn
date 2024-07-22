@@ -1,25 +1,25 @@
-[gd_scene load_steps=11 format=3 uid="uid://dekdotk8k6pfc"]
+[gd_scene load_steps=12 format=3 uid="uid://dekdotk8k6pfc"]
 
 [ext_resource type="Script" path="res://scripts/coin.gd" id="1_o5nix"]
-[ext_resource type="Texture2D" uid="uid://2bkqo4jvny48" path="res://my assets/sprites/radish-Sheet.png" id="2_w6ffg"]
+[ext_resource type="Texture2D" uid="uid://7y5fb25inseh" path="res://my assets/ui/lemon-Sheet.png" id="2_mdy82"]
 [ext_resource type="AudioStream" uid="uid://xccfdohpssl5" path="res://assets/sounds/coin.wav" id="3_riq2g"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eqaje"]
-atlas = ExtResource("2_w6ffg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn020"]
+atlas = ExtResource("2_mdy82")
 region = Rect2(0, 0, 9, 9)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_df1ac"]
-atlas = ExtResource("2_w6ffg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7aex"]
+atlas = ExtResource("2_mdy82")
 region = Rect2(9, 0, 9, 9)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mmx0x"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eqaje")
+"texture": SubResource("AtlasTexture_bn020")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_df1ac")
+"texture": SubResource("AtlasTexture_x7aex")
 }],
 "loop": true,
 "name": &"default",
@@ -34,7 +34,22 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/path = NodePath("HurtSound:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_h7g1e"]
+resource_name = "hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HurtSound:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -42,30 +57,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PickupSound:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_sr1r5"]
@@ -124,6 +115,7 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ghoa6"]
 _data = {
 "RESET": SubResource("Animation_1a6kf"),
+"hurt": SubResource("Animation_h7g1e"),
 "pickup": SubResource("Animation_sr1r5")
 }
 

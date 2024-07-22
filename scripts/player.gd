@@ -8,11 +8,11 @@ const EARLY_FALL_MULTIPLIER = 3.0  # Gravity multiplier for early fall
 const ANTI_GRAVITY_APEX_THRESHOLD = 30.0  # Velocity threshold for anti-gravity apex
 const ANTI_GRAVITY_APEX_MULTIPLIER = 0.5  # Gravity multiplier at the apex of the jump
 
-const DASH_SPEED = 400.0
-const DASH_DURATION = 0.2  # Duration of the dash in seconds
+const DASH_SPEED = 450.0
+const DASH_DURATION = 0.13  # Duration of the dash in seconds
 const DASH_COOLDOWN = 0.5  # Cooldown time between dashes
 const DASH_END_FALL_VELOCITY = 200.0  # Small upward velocity added at the end of the dash
-const DASH_DECELERATION_RATE = 2000.0  # Rate at which dash speed decelerates after dash ends
+const DASH_DECELERATION_RATE = 20000.0  # Rate at which dash speed decelerates after dash ends
 
 const COYOTE_TIME = 0.2  # Time allowed to jump after running off a ledge
 const JUMP_BUFFER_TIME = 0.2  # Time window to buffer the jump input
@@ -31,12 +31,16 @@ var dash_cooldown_time = 0.0
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var normal_collision_shape = $NormalCollisionShape2D
 @onready var duck_collision_shape = $DuckCollisionShape2D
+@onready var audio_player = $HurtSound
 
 func _ready():
 	gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 	# Ensure the normal collision shape is visible and the duck collision shape is hidden at the start
 	normal_collision_shape.visible = true
 	duck_collision_shape.visible = false
+	
+	Player_Health.connect("health_changed", Callable(self, "_on_health_changed"))
+	
 
 func _physics_process(delta):
 	# Handle gravity
@@ -159,3 +163,17 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+
+
+
+func _on_player_health_health_depleted():
+	print("you died")
+	audio_player.play()
+	get_tree().reload_current_scene()
+
+
+func _on_player_health_health_changed(diff):
+	audio_player.play()
+	animated_sprite.play("hit")

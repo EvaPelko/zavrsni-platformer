@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://s22v4ofo4p5q"]
+[gd_scene load_steps=8 format=3 uid="uid://s22v4ofo4p5q"]
 
 [ext_resource type="TileSet" uid="uid://cvho75d1mlfg5" path="res://my assets/sprites/HouseTileSet.tres" id="1_hl066"]
 [ext_resource type="Texture2D" uid="uid://dln8hs3tckeju" path="res://my assets/sprites/background tall blue.png" id="1_sna14"]
 [ext_resource type="PackedScene" uid="uid://cx5ju1d60m2e3" path="res://scenes/player.tscn" id="2_ndij0"]
 [ext_resource type="TileSet" uid="uid://bltmkh2iiav4l" path="res://my assets/sprites/WorldTileSet.tres" id="2_u8py8"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="3_27kyu"]
 [ext_resource type="PackedScene" uid="uid://dw7oujwbjmgx5" path="res://scenes/lamp.tscn" id="6_3lmjx"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_sx05m"]
@@ -47,7 +46,6 @@ layer_0/tile_data = PackedInt32Array(3276868, 0, 2, 3342404, 0, 3, 3211333, 6553
 
 [node name="Player" parent="." instance=ExtResource("2_ndij0")]
 position = Vector2(574, 436)
-script = ExtResource("3_27kyu")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(5, 5)

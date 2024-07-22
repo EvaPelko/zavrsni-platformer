@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Music="*res://scenes/music.tscn"
-HealthUI="*res://scenes/health.tscn"
+Player_Health="*res://scripts/player_health.gd"
 
 [input]
 
