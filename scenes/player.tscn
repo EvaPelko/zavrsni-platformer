@@ -323,7 +323,7 @@ script = ExtResource("2_tadw8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_oy4oq")
-animation = &"duck"
+animation = &"dash"
 autoplay = "idle"
 
 [node name="NormalCollisionShape2D" type="CollisionShape2D" parent="."]

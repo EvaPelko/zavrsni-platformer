@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqqm1y04ef0nd"]
+[gd_scene load_steps=4 format=3 uid="uid://dqqm1y04ef0nd"]
 
 [ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_llhnj"]
+[ext_resource type="Theme" uid="uid://b5xvr6yqu4j4o" path="res://assets/Default.tres" id="2_kvnou"]
+[ext_resource type="FontFile" uid="uid://mlgwk6ivoocr" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_ex6v6"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -13,18 +15,24 @@ script = ExtResource("1_llhnj")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1157.0
+offset_bottom = 648.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="volume" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Volume"
 
 [node name="back" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-text = "back"
+theme = ExtResource("2_kvnou")
+theme_override_fonts/font = ExtResource("3_ex6v6")
+text = "Back"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/back" to="." method="_on_back_pressed"]
