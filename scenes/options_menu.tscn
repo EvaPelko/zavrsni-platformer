@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqqm1y04ef0nd"]
+[gd_scene load_steps=6 format=3 uid="uid://dqqm1y04ef0nd"]
 
 [ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_llhnj"]
 [ext_resource type="Theme" uid="uid://b5xvr6yqu4j4o" path="res://assets/Default.tres" id="2_kvnou"]
+[ext_resource type="FontFile" uid="uid://ccqeo75plmx8k" path="res://assets/fonts/PixelOperator8.ttf" id="2_wuekt"]
 [ext_resource type="FontFile" uid="uid://mlgwk6ivoocr" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_ex6v6"]
+[ext_resource type="AudioStream" uid="uid://bnnk0lhd0rn2" path="res://assets/sounds/hurt.wav" id="5_vpq5s"]
 
-[node name="Menu" type="Control"]
+[node name="OptionsMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,19 +16,69 @@ grow_vertical = 2
 script = ExtResource("1_llhnj")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 1157.0
-offset_bottom = 648.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.5
+offset_top = -324.0
+offset_right = 578.5
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 18
 
-[node name="volume" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Music" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Volume"
+
+[node name="MusicVolume" type="Label" parent="MarginContainer/VBoxContainer/Music"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wuekt")
+text = "Music volume:
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Music"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Music/MarginContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="SFX" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SFXVolume" type="Label" parent="MarginContainer/VBoxContainer/SFX"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wuekt")
+text = "SFX volume:
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/SFX"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/SFX/MarginContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+tick_count = 11
+ticks_on_borders = true
 
 [node name="back" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
@@ -35,4 +87,9 @@ theme = ExtResource("2_kvnou")
 theme_override_fonts/font = ExtResource("3_ex6v6")
 text = "Back"
 
+[node name="SFX Preview" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_vpq5s")
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Music/MarginContainer/HSlider" to="." method="_on_bgm_volume_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/SFX/MarginContainer/HSlider" to="." method="_on_sfx_volume_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/back" to="." method="_on_back_pressed"]

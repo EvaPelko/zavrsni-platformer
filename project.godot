@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Music="*res://scenes/music.tscn"
 Player_Health="*res://scripts/player_health.gd"
+Options="*res://scripts/options.gd"
 
 [input]
 
