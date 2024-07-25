@@ -1,11 +1,10 @@
-[gd_scene load_steps=42 format=3 uid="uid://cx5ju1d60m2e3"]
+[gd_scene load_steps=41 format=3 uid="uid://cx5ju1d60m2e3"]
 
 [ext_resource type="Texture2D" uid="uid://bwlvygjgxatyc" path="res://my assets/sprites/player - animated-duck.png" id="1_3b4q2"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3dlr8"]
 [ext_resource type="Texture2D" uid="uid://nr5g08a1cajp" path="res://my assets/sprites/player - animated-idle.png" id="1_ff15c"]
 [ext_resource type="Texture2D" uid="uid://dibtihv7q27cy" path="res://my assets/sprites/player - animated-dash.png" id="1_gug8p"]
 [ext_resource type="Texture2D" uid="uid://bxhwj23d1blt5" path="res://my assets/sprites/player - animated-jump.png" id="2_o1fpw"]
-[ext_resource type="Script" path="res://scripts/player_health.gd" id="2_tadw8"]
 [ext_resource type="Texture2D" uid="uid://c8uu6msplqyr1" path="res://my assets/sprites/player - animated-run.png" id="3_a15pc"]
 [ext_resource type="Texture2D" uid="uid://o3bntloelrpm" path="res://my assets/sprites/player - animated-talk.png" id="4_7nl0d"]
 [ext_resource type="Texture2D" uid="uid://hqfsvxoj836" path="res://my assets/sprites/player - animated-hit.png" id="4_jqrah"]
@@ -317,9 +316,6 @@ z_index = 5
 collision_layer = 2
 script = ExtResource("1_3dlr8")
 
-[node name="PlayerHealth" type="Node" parent="."]
-script = ExtResource("2_tadw8")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_oy4oq")
@@ -334,11 +330,10 @@ shape = SubResource("CapsuleShape2D_x1q4s")
 position = Vector2(0, -4)
 shape = SubResource("CapsuleShape2D_daskb")
 
-[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+[node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 7
 script = ExtResource("11_taflj")
-health = NodePath("../PlayerHealth")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, -6)
@@ -352,6 +347,3 @@ bus = &"SFX"
 libraries = {
 "": SubResource("AnimationLibrary_ghoa6")
 }
-
-[connection signal="health_changed" from="PlayerHealth" to="." method="_on_player_health_health_changed"]
-[connection signal="health_depleted" from="PlayerHealth" to="." method="_on_player_health_health_depleted"]

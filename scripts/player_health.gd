@@ -1,11 +1,9 @@
 class_name PlayerHealth
 extends Node
 
-
 signal max_health_changed(diff: int)
-signal health_changed(diff: int)
+signal health_changed(new_health)
 signal health_depleted
-
 
 @export var max_health: int = 3 : set = set_max_health, get = get_max_health
 @export var immortality: bool = false : set = set_immortality, get = get_immortality
@@ -13,7 +11,6 @@ signal health_depleted
 var immortality_timer: Timer = null
 
 @onready var health: int = max_health : set = set_health, get = get_health
-
 
 func set_max_health(value: int):
 	var clamped_value = 1 if value <= 0 else value
@@ -26,18 +23,14 @@ func set_max_health(value: int):
 		if health > max_health:
 			health = max_health
 
-
 func get_max_health() -> int:
 	return max_health
-
 
 func set_immortality(value: bool):
 	immortality = value
 
-
 func get_immortality() -> bool:
 	return immortality
-
 
 func set_temporary_immortality(time: float):
 	if immortality_timer == null:
@@ -53,7 +46,6 @@ func set_temporary_immortality(time: float):
 	immortality = true
 	immortality_timer.start()
 
-
 func set_health(value: int):
 	if value < health and immortality:
 		return
@@ -63,11 +55,10 @@ func set_health(value: int):
 	if clamped_value != health:
 		var difference = clamped_value - health
 		health = value
-		health_changed.emit(difference)
+		health_changed.emit(clamped_value)
 		
 		if health == 0:
 			health_depleted.emit()
-
 
 func get_health():
 	return health

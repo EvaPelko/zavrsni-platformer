@@ -39,7 +39,7 @@ func _ready():
 	normal_collision_shape.visible = true
 	duck_collision_shape.visible = false
 	
-	Player_Health.connect("health_changed", Callable(self, "_on_health_changed"))
+	#Player_Health.connect("health_changed", Callable(self, "_on_health_changed"))
 	
 
 func _physics_process(delta):

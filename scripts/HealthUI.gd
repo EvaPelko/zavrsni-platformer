@@ -3,7 +3,7 @@ extends Control
 @export var full_heart: Texture
 @export var empty_heart: Texture
 
-var max_health: int = 3
+var max_health: int = Player_Health.max_health
 
 @onready var hearts = [
 	$Heart1,
