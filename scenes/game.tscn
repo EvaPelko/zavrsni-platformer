@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://de768aoeadgrm"]
+[gd_scene load_steps=5 format=3 uid="uid://de768aoeadgrm"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_l77jh"]
 [ext_resource type="PackedScene" uid="uid://b2wy7pqx5o8h2" path="res://scenes/health.tscn" id="1_p6ggg"]
-[ext_resource type="PackedScene" uid="uid://bkcyy4fmdqwlw" path="res://scenes/level1.tscn" id="2_y12tm"]
 [ext_resource type="Texture2D" uid="uid://dj0731lo3bhq3" path="res://my assets/ui/lemon.png" id="5_ekfwo"]
 [ext_resource type="FontFile" uid="uid://ccqeo75plmx8k" path="res://assets/fonts/PixelOperator8.ttf" id="8_t0smu"]
 
@@ -10,8 +9,6 @@
 script = ExtResource("1_l77jh")
 
 [node name="levels" type="Node" parent="."]
-
-[node name="level1" parent="levels" instance=ExtResource("2_y12tm")]
 
 [node name="UI" type="Node" parent="."]
 
@@ -25,14 +22,14 @@ offset_top = 34.0
 offset_right = 77.0
 offset_bottom = 93.0
 theme_override_fonts/font = ExtResource("8_t0smu")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 40
 text = "0"
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="UI/Score"]
-offset_left = 75.0
-offset_top = 24.0
-offset_right = 137.0
-offset_bottom = 85.0
+offset_left = 88.0
+offset_top = 22.0
+offset_right = 150.0
+offset_bottom = 83.0
 texture = ExtResource("5_ekfwo")
 stretch_mode = 4

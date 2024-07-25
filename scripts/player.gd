@@ -40,6 +40,7 @@ func _ready():
 	duck_collision_shape.visible = false
 	
 	#Player_Health.connect("health_changed", Callable(self, "_on_health_changed"))
+	Player_Health.health_depleted.connect(_on_player_health_health_depleted)
 	
 
 func _physics_process(delta):
@@ -172,6 +173,7 @@ func _on_player_health_health_depleted():
 	print("you died")
 	audio_player.play()
 	get_tree().reload_current_scene()
+	Player_Health.health = Player_Health.max_health
 
 
 func _on_player_health_health_changed(diff):

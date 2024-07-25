@@ -13,7 +13,7 @@ func _on_body_entered(body):
 
 func _on_timer_timeout():
 	Engine.time_scale = 1
-	get_tree().reload_current_scene()
+	Player_Health.health = 0
 
 func disable_collision_shapes(body):
 	# Check and disable the normal collision shape
