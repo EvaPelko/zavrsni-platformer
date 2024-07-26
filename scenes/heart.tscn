@@ -1,25 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://dekdotk8k6pfc"]
+[gd_scene load_steps=11 format=3 uid="uid://dyh7lyne2bdpl"]
 
-[ext_resource type="Script" path="res://scripts/coin.gd" id="1_o5nix"]
-[ext_resource type="Texture2D" uid="uid://7y5fb25inseh" path="res://my assets/ui/lemon-Sheet.png" id="2_mdy82"]
-[ext_resource type="AudioStream" uid="uid://xccfdohpssl5" path="res://assets/sounds/coin.wav" id="3_riq2g"]
+[ext_resource type="Script" path="res://scripts/heart.gd" id="1_idt5o"]
+[ext_resource type="Texture2D" uid="uid://cgwuwfk4brgvq" path="res://my assets/ui/heart-full.png" id="2_j3kld"]
+[ext_resource type="AudioStream" uid="uid://xccfdohpssl5" path="res://assets/sounds/coin.wav" id="3_a3gbx"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a4n0v"]
-atlas = ExtResource("2_mdy82")
-region = Rect2(0, 0, 9, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sl0do"]
-atlas = ExtResource("2_mdy82")
-region = Rect2(9, 0, 9, 9)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbhue"]
+atlas = ExtResource("2_j3kld")
+region = Rect2(0, 0, 8, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mmx0x"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a4n0v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sl0do")
+"texture": SubResource("AtlasTexture_hbhue")
 }],
 "loop": true,
 "name": &"default",
@@ -119,9 +112,9 @@ _data = {
 "pickup": SubResource("Animation_sr1r5")
 }
 
-[node name="Coin" type="Area2D"]
+[node name="Heart" type="Area2D"]
 collision_mask = 2
-script = ExtResource("1_o5nix")
+script = ExtResource("1_idt5o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mmx0x")
@@ -131,7 +124,7 @@ autoplay = "default"
 shape = SubResource("CircleShape2D_00mpo")
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_riq2g")
+stream = ExtResource("3_a3gbx")
 bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

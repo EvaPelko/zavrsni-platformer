@@ -39,7 +39,7 @@ func _ready():
 	normal_collision_shape.visible = true
 	duck_collision_shape.visible = false
 	
-	#Player_Health.health_depleted.connect(_on_player_health_health_depleted)
+	Player_Health.health_changed.connect(_on_player_health_health_changed)
 	
 
 func _physics_process(delta):
