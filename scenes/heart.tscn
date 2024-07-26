@@ -1,18 +1,25 @@
-[gd_scene load_steps=11 format=3 uid="uid://dyh7lyne2bdpl"]
+[gd_scene load_steps=12 format=3 uid="uid://dyh7lyne2bdpl"]
 
 [ext_resource type="Script" path="res://scripts/heart.gd" id="1_idt5o"]
-[ext_resource type="Texture2D" uid="uid://cgwuwfk4brgvq" path="res://my assets/ui/heart-full.png" id="2_j3kld"]
+[ext_resource type="Texture2D" uid="uid://ftlitmhklwj7" path="res://my assets/ui/heart-full-Sheet.png" id="2_0cp6m"]
 [ext_resource type="AudioStream" uid="uid://xccfdohpssl5" path="res://assets/sounds/coin.wav" id="3_a3gbx"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hbhue"]
-atlas = ExtResource("2_j3kld")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1i0h1"]
+atlas = ExtResource("2_0cp6m")
 region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dp11"]
+atlas = ExtResource("2_0cp6m")
+region = Rect2(8, 0, 8, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mmx0x"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hbhue")
+"texture": SubResource("AtlasTexture_1i0h1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dp11")
 }],
 "loop": true,
 "name": &"default",
