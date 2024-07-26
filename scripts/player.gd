@@ -39,7 +39,7 @@ func _ready():
 	normal_collision_shape.visible = true
 	duck_collision_shape.visible = false
 	
-	Player_Health.health_changed.connect(_on_player_health_health_changed)
+	Player_Health.damage_taken.connect(_on_player_damage_taken)
 	
 
 func _physics_process(delta):
@@ -168,6 +168,6 @@ func _physics_process(delta):
 
 
 
-func _on_player_health_health_changed(diff):
+func _on_player_damage_taken():
 	audio_player.play()
 	animated_sprite.play("hit")
