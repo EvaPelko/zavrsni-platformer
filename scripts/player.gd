@@ -28,6 +28,9 @@ var dash_time = 0.0
 var dash_direction = 0
 var dash_cooldown_time = 0.0
 
+@export var throw_offset_y: float = -9.0
+@export var throw_angle: float = 45.0  # Angle of the throw in degrees
+
 @onready var projectile_scene = load("res://scenes/projectile.tscn")
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var normal_collision_shape = $NormalCollisionShape2D
@@ -176,13 +179,11 @@ func shoot():
 	animated_sprite.play("throw")
 	var projectile = projectile_scene.instantiate()
 	var direction = Vector2.RIGHT if not animated_sprite.flip_h else Vector2.LEFT
-	projectile.direction = direction
-#	var offset = Vector2(0, -normal_collision_shape.shape.extents.y / 2)
-#	projectile.position = global_position + offset
-	projectile.position = global_position
-#	projectile.dir = rotation
-#	projectile.spawnPos = global_position
-#	projectile.spawnRot = rotation
+	var angle = throw_angle if animated_sprite.flip_h else -throw_angle
+	var throw_direction = direction.rotated(deg_to_rad(angle))
+	projectile.direction = throw_direction
+	var offset = Vector2(0, throw_offset_y)
+	projectile.position = global_position + offset
 	get_parent().add_child(projectile)
 
 func _on_player_damage_taken():
