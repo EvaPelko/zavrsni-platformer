@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 const SPEED = 60
 var direction = 1

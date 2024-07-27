@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://l60q2yy8envk" path="res://my assets/sprites/NPCs/enemies/glitch-enemy-die.png" id="4_c43fa"]
 [ext_resource type="Script" path="res://scripts/hitbox.gd" id="6_5ukyi"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0grr"]
+size = Vector2(6, 7)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_g66xw"]
 atlas = ExtResource("2_wk5ck")
 region = Rect2(0, 0, 16, 16)
@@ -82,11 +85,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0grr"]
-size = Vector2(6, 7)
-
-[node name="Enemy" type="Node2D"]
+[node name="Enemy" type="Area2D" groups=["enemies"]]
 script = ExtResource("1_xr2ah")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_i0grr")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_y2qqm")

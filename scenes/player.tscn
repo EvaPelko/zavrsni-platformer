@@ -215,11 +215,23 @@ animations = [{
 "texture": SubResource("AtlasTexture_okfs1")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_okfs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okfs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqkcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqkcq")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_wqkcq")
 }],
 "loop": true,
 "name": &"throw",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x1q4s"]
@@ -328,7 +340,7 @@ script = ExtResource("1_3dlr8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_oy4oq")
-animation = &"hit"
+animation = &"throw"
 autoplay = "idle"
 
 [node name="NormalCollisionShape2D" type="CollisionShape2D" parent="."]

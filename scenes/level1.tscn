@@ -29,7 +29,7 @@ texture = ExtResource("4_ykbbh")
 expand_mode = 3
 stretch_mode = 1
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." groups=["terrain"]]
 tile_set = ExtResource("5_jheee")
 cell_quadrant_size = 8
 format = 2

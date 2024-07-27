@@ -28,6 +28,7 @@ var dash_time = 0.0
 var dash_direction = 0
 var dash_cooldown_time = 0.0
 
+@onready var projectile_scene = load("res://scenes/projectile.tscn")
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var normal_collision_shape = $NormalCollisionShape2D
 @onready var duck_collision_shape = $DuckCollisionShape2D
@@ -162,11 +163,26 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	# Handle throwing lemons
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
+		
 	move_and_slide()
 
 
 
-
+func shoot():
+	animated_sprite.play("throw")
+	var projectile = projectile_scene.instantiate()
+	var direction = Vector2.RIGHT if not animated_sprite.flip_h else Vector2.LEFT
+	projectile.direction = direction
+#	var offset = Vector2(0, -normal_collision_shape.shape.extents.y / 2)
+#	projectile.position = global_position + offset
+	projectile.position = global_position
+#	projectile.dir = rotation
+#	projectile.spawnPos = global_position
+#	projectile.spawnRot = rotation
+	get_parent().add_child(projectile)
 
 func _on_player_damage_taken():
 	audio_player.play()
