@@ -13,6 +13,11 @@ func add_point():
 	print(score)
 	score_label.text = str(score)
 
+func subtract_point():
+	score -= 1
+	print(score)
+	score_label.text = str(score)
+
 
 func _on_player_health_health_depleted():
 	print("you died")

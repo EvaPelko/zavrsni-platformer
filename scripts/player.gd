@@ -176,15 +176,19 @@ func _physics_process(delta):
 
 
 func shoot():
-	animated_sprite.play("throw")
-	var projectile = projectile_scene.instantiate()
-	var direction = Vector2.RIGHT if not animated_sprite.flip_h else Vector2.LEFT
-	var angle = throw_angle if animated_sprite.flip_h else -throw_angle
-	var throw_direction = direction.rotated(deg_to_rad(angle))
-	projectile.direction = throw_direction
-	var offset = Vector2(0, throw_offset_y)
-	projectile.position = global_position + offset
-	get_parent().add_child(projectile)
+	if GameManager.score > 0:
+		animated_sprite.play("throw")
+		var projectile = projectile_scene.instantiate()
+		var direction = Vector2.RIGHT if not animated_sprite.flip_h else Vector2.LEFT
+		var angle = throw_angle if animated_sprite.flip_h else -throw_angle
+		var throw_direction = direction.rotated(deg_to_rad(angle))
+		projectile.direction = throw_direction
+		var offset = Vector2(0, throw_offset_y)
+		projectile.position = global_position + offset
+		get_parent().add_child(projectile)
+		GameManager.subtract_point()
+	else:
+		print("not enough lemons")
 
 func _on_player_damage_taken():
 	audio_player.play()
