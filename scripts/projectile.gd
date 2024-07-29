@@ -21,9 +21,14 @@ func _process(delta):
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("enemies"):
-		print("hit")
-		audio_player.play()
-		queue_free()
+		var health_component = area.get_node_or_null("Health")
+		if health_component and health_component.has_method("take_damage"):
+			health_component.take_damage(DAMAGE)
+			print("enemy hit and took damage")
+			audio_player.play()
+			queue_free()
+		else:
+			print("hit enemy without health component")
 		
 
 func _on_area_2d_body_entered(body):
