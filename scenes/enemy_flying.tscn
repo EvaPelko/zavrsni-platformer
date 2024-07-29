@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://3ye7b8bcvjox"]
+[gd_scene load_steps=19 format=3 uid="uid://3ye7b8bcvjox"]
 
 [ext_resource type="Script" path="res://scripts/enemy_flying.gd" id="1_2h3j7"]
 [ext_resource type="Script" path="res://scripts/health.gd" id="2_4l2rl"]
@@ -87,10 +87,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6i8y2")
 }],
-"loop": true,
+"loop": false,
 "name": &"die",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vn4xa"]
+radius = 36.0035
 
 [node name="EnemyFlying" type="Area2D" groups=["enemies"]]
 script = ExtResource("1_2h3j7")
@@ -122,3 +125,14 @@ script = ExtResource("5_jqja0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_i0grr")
+
+[node name="DetectionArea2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("CircleShape2D_vn4xa")
+
+[connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
+[connection signal="body_entered" from="DetectionArea2D" to="." method="_on_detection_area_2d_body_entered"]
+[connection signal="body_exited" from="DetectionArea2D" to="." method="_on_detection_area_2d_body_exited"]

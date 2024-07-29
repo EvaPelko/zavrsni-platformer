@@ -21,4 +21,4 @@ func _on_quit_pressed():
 
 
 func _on_new_game_pressed():
-	print("test")
+	get_tree().change_scene_to_file("res://scenes/level1.tscn")
