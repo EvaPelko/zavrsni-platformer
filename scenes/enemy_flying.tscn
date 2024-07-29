@@ -93,7 +93,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vn4xa"]
-radius = 36.0035
+radius = 49.023
 
 [node name="EnemyFlying" type="Area2D" groups=["enemies"]]
 script = ExtResource("1_2h3j7")

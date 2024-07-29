@@ -80,7 +80,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ecf4u")
 }],
-"loop": true,
+"loop": false,
 "name": &"die",
 "speed": 5.0
 }]
@@ -98,6 +98,7 @@ max_health = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ef4xp")
+animation = &"die"
 autoplay = "default"
 flip_h = true
 
