@@ -7,6 +7,7 @@ var is_alive = true
 @onready var ray_cast_right = $RayCastRight
 @onready var ray_cast_left = $RayCastLeft
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var audio_player = $SplatSound
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -24,6 +25,7 @@ func _process(delta):
 
 func _on_health_health_depleted():
 	is_alive = false
+	audio_player.play()
 	animated_sprite.play("die")
 	await animated_sprite.animation_finished
 	queue_free()

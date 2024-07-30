@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://f54gygty6bmw"]
+[gd_scene load_steps=18 format=3 uid="uid://f54gygty6bmw"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_xr2ah"]
 [ext_resource type="Texture2D" uid="uid://daviwb1j2tk0t" path="res://my assets/sprites/NPCs/enemies/glitch-enemy-walk.png" id="2_wk5ck"]
 [ext_resource type="Script" path="res://scripts/health.gd" id="2_y2qqm"]
 [ext_resource type="Texture2D" uid="uid://l60q2yy8envk" path="res://my assets/sprites/NPCs/enemies/glitch-enemy-die.png" id="4_c43fa"]
 [ext_resource type="Script" path="res://scripts/hitbox.gd" id="6_5ukyi"]
+[ext_resource type="AudioStream" uid="uid://dcpiys7080kvk" path="res://assets/sounds/719129__sebastientate__splat-1.wav" id="6_uarkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0grr"]
 size = Vector2(6, 7)
@@ -115,5 +116,8 @@ script = ExtResource("6_5ukyi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_i0grr")
+
+[node name="SplatSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_uarkg")
 
 [connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]

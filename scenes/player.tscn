@@ -229,9 +229,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wqkcq")
 }],
-"loop": true,
+"loop": false,
 "name": &"throw",
-"speed": 1.0
+"speed": 7.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x1q4s"]

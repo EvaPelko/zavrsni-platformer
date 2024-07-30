@@ -13,6 +13,7 @@ var is_alive = true
 @onready var detection_area = $DetectionArea2D
 @onready var ray_cast_right = $RayCastRight
 @onready var ray_cast_left = $RayCastLeft
+@onready var audio_player = $SplatSound
 
 var player = null
 var chasing_player = false
@@ -83,6 +84,7 @@ func _on_detection_area_2d_body_exited(body):
 
 func _on_health_health_depleted():
 	is_alive = false
+	audio_player.play()
 	animated_sprite.play("die")
 	await animated_sprite.animation_finished
 	queue_free()
