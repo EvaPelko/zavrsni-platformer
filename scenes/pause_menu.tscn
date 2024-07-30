@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://blgs22uj0g03u"]
+
+[ext_resource type="FontFile" uid="uid://mlgwk6ivoocr" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_bakst"]
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_ku4vi"]
+[ext_resource type="Theme" uid="uid://b5xvr6yqu4j4o" path="res://assets/Default.tres" id="2_a4f04"]
+[ext_resource type="FontFile" uid="uid://ccqeo75plmx8k" path="res://assets/fonts/PixelOperator8.ttf" id="3_o6ol6"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -11.0
+offset_right = 2.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ku4vi")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -128.0
+offset_right = 104.0
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -97.5
+offset_right = 77.0
+offset_bottom = 97.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_bakst")
+text = "Pause Menu"
+
+[node name="ResumeButton" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("2_a4f04")
+theme_override_fonts/font = ExtResource("3_o6ol6")
+text = "Resume"
+
+[node name="SaveButton" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("2_a4f04")
+theme_override_fonts/font = ExtResource("3_o6ol6")
+text = "Save"
+
+[node name="OptionsButton" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("2_a4f04")
+theme_override_fonts/font = ExtResource("3_o6ol6")
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("2_a4f04")
+theme_override_fonts/font = ExtResource("3_o6ol6")
+text = "Quit"
+
+[connection signal="pressed" from="Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

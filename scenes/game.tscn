@@ -5,10 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dj0731lo3bhq3" path="res://my assets/ui/lemon.png" id="5_ekfwo"]
 [ext_resource type="FontFile" uid="uid://ccqeo75plmx8k" path="res://assets/fonts/PixelOperator8.ttf" id="8_t0smu"]
 
-[node name="GameManager" type="Node"]
+[node name="GameUiManager" type="Node"]
 script = ExtResource("1_l77jh")
-
-[node name="levels" type="Node" parent="."]
 
 [node name="UI" type="Node" parent="."]
 
