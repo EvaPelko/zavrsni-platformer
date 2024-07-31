@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://dfuhennwjx52n"]
+
+[ext_resource type="Texture2D" uid="uid://cc5xr1qff6oe8" path="res://my assets/sprites/teleport-Sheet.png" id="1_0e2bf"]
+[ext_resource type="Script" path="res://scripts/teleport.gd" id="1_7krsf"]
+[ext_resource type="AudioStream" uid="uid://xccfdohpssl5" path="res://assets/sounds/coin.wav" id="2_qmdti"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w06po"]
+atlas = ExtResource("1_0e2bf")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryx3l"]
+atlas = ExtResource("1_0e2bf")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pc5tr"]
+atlas = ExtResource("1_0e2bf")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkiem"]
+atlas = ExtResource("1_0e2bf")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rlt2c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w06po")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryx3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pc5tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkiem")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x80cx"]
+
+[node name="Teleport" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_7krsf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_rlt2c")
+autoplay = "default"
+frame_progress = 0.152829
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_x80cx")
+
+[node name="TeleportSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_qmdti")
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
