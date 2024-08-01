@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://de768aoeadgrm"]
+[gd_scene load_steps=6 format=3 uid="uid://de768aoeadgrm"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_l77jh"]
 [ext_resource type="PackedScene" uid="uid://b2wy7pqx5o8h2" path="res://scenes/health.tscn" id="1_p6ggg"]
 [ext_resource type="Texture2D" uid="uid://dj0731lo3bhq3" path="res://my assets/ui/lemon.png" id="5_ekfwo"]
+[ext_resource type="PackedScene" uid="uid://blgs22uj0g03u" path="res://scenes/pause_menu.tscn" id="5_w61cp"]
 [ext_resource type="FontFile" uid="uid://ccqeo75plmx8k" path="res://assets/fonts/PixelOperator8.ttf" id="8_t0smu"]
 
 [node name="GameUiManager" type="Node"]
@@ -35,5 +36,9 @@ stretch_mode = 4
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_w61cp")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
