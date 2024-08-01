@@ -1,8 +1,11 @@
 extends Node
 
 var score = 0
-#var current_level = str(get_tree().current_scene.name)
+var current_level = "res://scenes/level1.tscn"
+var last_menu = "main menu"
 
+@onready var warning_label = $CanvasLayer/MarginContainer/Warning
+@onready var animation_player = $AnimationPlayer
 @onready var score_label = $UI/Score/ScoreLabel
 @onready var timer = $Timer
 
@@ -10,6 +13,7 @@ signal toggle_game_paused(is_paused : bool)
 
 func _ready():
 	Player_Health.health_depleted.connect(_on_player_health_health_depleted)
+	warning_label.visible = false
 
 func add_point():
 	score += 1
@@ -47,3 +51,13 @@ var game_paused : bool = false:
 func _input(event : InputEvent):
 	if (event.is_action_pressed("ui_cancel")):
 		game_paused = !game_paused
+		
+func show_fade_label(text: String, position: Vector2):
+	warning_label.text = text
+	warning_label.position = position
+	warning_label.modulate = Color(1, 1, 1, 1)  # Reset visibility
+	warning_label.visible = true
+	animation_player.play("fade_out")
+	# Queue free after the animation is done
+	await animation_player.animation_finished
+	warning_label.visible = false

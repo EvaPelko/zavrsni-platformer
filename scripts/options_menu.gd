@@ -6,8 +6,11 @@ extends Control
 
 
 func _on_back_pressed():
-	get_tree().change_scene_to_file("res://scenes/menu.tscn")
-	
+	if(GameManager.last_menu == "main menu"):
+		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+	else:
+		get_tree().change_scene_to_file(GameManager.current_level)
+		GameManager.game_paused = true
 
 func _on_sfx_volume_signal(new_value):
 	sfxVolumeSlider.value = new_value

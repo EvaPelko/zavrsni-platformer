@@ -8,4 +8,6 @@ func _on_body_entered(body):
 		var current_scene_name = str(get_tree().current_scene.name)
 		var next_scene_number = int(current_scene_name) + 1
 		var next_scene_path = "res://scenes/level" + str(next_scene_number) + ".tscn"
+		GameManager.current_level = next_scene_path
+		print(GameManager.current_level)
 		get_tree().change_scene_to_file(next_scene_path)

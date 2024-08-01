@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://de768aoeadgrm"]
+[gd_scene load_steps=8 format=3 uid="uid://de768aoeadgrm"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_l77jh"]
 [ext_resource type="PackedScene" uid="uid://b2wy7pqx5o8h2" path="res://scenes/health.tscn" id="1_p6ggg"]
 [ext_resource type="Texture2D" uid="uid://dj0731lo3bhq3" path="res://my assets/ui/lemon.png" id="5_ekfwo"]
 [ext_resource type="PackedScene" uid="uid://blgs22uj0g03u" path="res://scenes/pause_menu.tscn" id="5_w61cp"]
 [ext_resource type="FontFile" uid="uid://ccqeo75plmx8k" path="res://assets/fonts/PixelOperator8.ttf" id="8_t0smu"]
+
+[sub_resource type="Animation" id="Animation_wys82"]
+resource_name = "fade_out"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gj8fo"]
+_data = {
+"fade_out": SubResource("Animation_wys82")
+}
 
 [node name="GameUiManager" type="Node"]
 script = ExtResource("1_l77jh")
@@ -40,5 +48,23 @@ one_shot = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_w61cp")]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 19.0
+grow_horizontal = 2
+
+[node name="Warning" type="Label" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_t0smu")
+text = "Warning text"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gj8fo")
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

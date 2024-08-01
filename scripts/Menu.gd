@@ -12,6 +12,7 @@ func _on_play_pressed():
 
 func _on_options_pressed():
 	get_tree().change_scene_to_file("res://scenes/options_menu.tscn")
+	GameManager.last_menu = "main menu"
 
 
 

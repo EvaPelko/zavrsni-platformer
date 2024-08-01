@@ -189,11 +189,13 @@ func shoot():
 		GameManager.subtract_point()
 	else:
 		print("not enough lemons")
+		GameManager.show_fade_label("Not enough lemons", global_position)
 
 func _on_player_damage_taken():
 	audio_player.play()
 	animated_sprite.play("hit")
 
 func _on_player_health_depleted():
+	GameManager.show_fade_label("You died", global_position)
 	normal_collision_shape.set_deferred("disabled", true)
 	duck_collision_shape.set_deferred("disabled", true)
