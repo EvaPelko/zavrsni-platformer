@@ -89,9 +89,9 @@ func load_data():
 		#game_saved = false
 		
 func delete_data():
-	if FileAccess.file_exists(save_path):
-		#FileAccess.remove(save_path)
-		print("Save file deleted.")
-		#game_saved = false
-	else:
-		print("No save file to delete.")
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	file.store_var(0)
+	file.store_var("res://scenes/level1.tscn")
+	file.store_var(Player_Health.max_health)
+	file.close()
+	print("Overwritten save file, starting new game")

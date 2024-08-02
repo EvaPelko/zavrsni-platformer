@@ -28,6 +28,8 @@ var dash_time = 0.0
 var dash_direction = 0
 var dash_cooldown_time = 0.0
 
+var player_position = Vector2()
+
 @export var throw_offset_y: float = -9.0
 @export var throw_angle: float = 45.0  # Angle of the throw in degrees
 
