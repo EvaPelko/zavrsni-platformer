@@ -74,6 +74,13 @@ theme = ExtResource("2_a4f04")
 theme_override_fonts/font = ExtResource("3_o6ol6")
 text = "Options"
 
+[node name="Main Menu" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("2_a4f04")
+theme_override_fonts/font = ExtResource("3_o6ol6")
+text = "Main Menu"
+
 [node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
@@ -84,4 +91,5 @@ text = "Quit"
 [connection signal="pressed" from="Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

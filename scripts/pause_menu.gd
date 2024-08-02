@@ -36,3 +36,10 @@ func _on_options_button_pressed():
 func _on_save_button_pressed():
 	GameManager.save()
 	GameManager.show_fade_label("Saving game...", global_position)
+
+
+
+
+func _on_main_menu_pressed():
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+	GameManager.game_paused = false
