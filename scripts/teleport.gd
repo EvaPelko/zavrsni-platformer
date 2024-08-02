@@ -10,5 +10,6 @@ func _on_body_entered(body):
 		var next_scene_path = "res://scenes/level" + str(next_scene_number) + ".tscn"
 		GameManager.current_level = next_scene_path
 		print(GameManager.current_level)
-		GameManager.show_fade_label("Switching levels...", global_position)
+		GameManager.show_fade_label("Saving game... switching levels...", global_position)
 		get_tree().change_scene_to_file(next_scene_path)
+		GameManager.save()

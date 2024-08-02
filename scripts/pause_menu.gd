@@ -33,10 +33,6 @@ func _on_options_button_pressed():
 	GameManager.last_menu = "pause menu"
 
 
-func _on_save_button_pressed():
-	GameManager.save()
-	GameManager.show_fade_label("Saving game...", global_position)
-
 
 
 
