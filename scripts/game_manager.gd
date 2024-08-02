@@ -66,32 +66,49 @@ func show_fade_label(text: String, position: Vector2):
 	warning_label.visible = false
 
 func save():
-	var file = FileAccess.open(save_path, FileAccess.WRITE)
-	file.store_var(score)
-	file.store_var(current_level)
-	file.store_var(Player_Health.health)
-	file.close()
+	var saved_game:SavedGame = SavedGame.new()
+	
+	saved_game.health = Player_Health.health
+	saved_game.score = score
+	saved_game.current_level = current_level
+	
+	ResourceSaver.save(saved_game, "user://savegame.tres")
+	
 	print("Saved game")
-	#game_saved = true
 	
 func load_data():
-	if FileAccess.file_exists(save_path):
-		var file = FileAccess.open(save_path, FileAccess.READ)
-		score = file.get_var()
-		current_level = file.get_var()
-		Player_Health.health = file.get_var()
-		file.close()
-		#game_saved = true
-		print("Loaded saved game.")
-		score_label.text = str(score)
-	else:
-		print("No data saved.")
-		#game_saved = false
+	var saved_game:SavedGame = load("user://savegame.tres") as SavedGame
+	
+	Player_Health.health = saved_game.health
+	score = saved_game.score
+	current_level = saved_game.current_level
+	
+	score_label.text = str(score)
+#	if FileAccess.file_exists(save_path):
+#		var file = FileAccess.open(save_path, FileAccess.READ)
+#		score = file.get_var()
+#		current_level = file.get_var()
+#		Player_Health.health = file.get_var()
+#		file.close()
+#		#game_saved = true
+#		print("Loaded saved game.")
+#		score_label.text = str(score)
+#	else:
+#		print("No data saved.")
+#		#game_saved = false
 		
 func delete_data():
-	var file = FileAccess.open(save_path, FileAccess.WRITE)
-	file.store_var(0)
-	file.store_var("res://scenes/level1.tscn")
-	file.store_var(Player_Health.max_health)
-	file.close()
+	var saved_game:SavedGame = SavedGame.new()
+	
+	saved_game.health = Player_Health.max_health
+	saved_game.score = 0
+	saved_game.current_level = "res://scenes/level1.tscn"
+	
+	ResourceSaver.save(saved_game, "user://savegame.tres")
+#	var file = FileAccess.open(save_path, FileAccess.WRITE)
+#	file.store_var(0)
+#	file.store_var("res://scenes/level1.tscn")
+#	file.store_var(Player_Health.max_health)
+#	file.close()
+	score_label.text = str(score)
 	print("Overwritten save file, starting new game")

@@ -1,7 +1,7 @@
 extends Area2D
 
-const SPEED = 60
-const FLY_TIME = 3.0 # Shorter fly time
+@export var SPEED = 60
+@export var FLY_TIME = 3.0
 var direction = 1 # Start by flying right
 var fly_time_left = FLY_TIME
 var original_direction = direction

@@ -4,14 +4,19 @@ extends Control
 
 
 func _on_continue_pressed():
-	if FileAccess.file_exists(GameManager.save_path):
-		GameManager.load_data()
-		var scene_number = int(GameManager.current_level)
-		var scene_path = "res://scenes/level" + str(scene_number) + ".tscn"
-		GameManager.show_fade_label("Loading game...", global_position)
-		get_tree().change_scene_to_file(scene_path)
-	else:
-		GameManager.show_fade_label("No saved game", global_position)
+	GameManager.load_data()
+	var scene_number = int(GameManager.current_level)
+	var scene_path = "res://scenes/level" + str(scene_number) + ".tscn"
+	GameManager.show_fade_label("Loading game...", global_position)
+	get_tree().change_scene_to_file(scene_path)
+#	if FileAccess.file_exists(GameManager.save_path):
+#		GameManager.load_data()
+#		var scene_number = int(GameManager.current_level)
+#		var scene_path = "res://scenes/level" + str(scene_number) + ".tscn"
+#		GameManager.show_fade_label("Loading game...", global_position)
+#		get_tree().change_scene_to_file(scene_path)
+#	else:
+#		GameManager.show_fade_label("No saved game", global_position)
 
 
 func _on_options_pressed():
@@ -27,5 +32,6 @@ func _on_new_game_pressed():
 	GameManager.show_fade_label("Starting new game", global_position)
 	get_tree().change_scene_to_file("res://scenes/level1.tscn")
 	GameManager.delete_data()
+	GameManager.load_data()
 
 
