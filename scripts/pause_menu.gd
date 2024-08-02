@@ -31,3 +31,8 @@ func _on_options_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/options_menu.tscn")
 	GameManager.game_paused = false
 	GameManager.last_menu = "pause menu"
+
+
+func _on_save_button_pressed():
+	GameManager.save()
+	GameManager.show_fade_label("Saving game...", global_position)

@@ -48,12 +48,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Continue" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = ExtResource("3_08tw8")
 theme_override_fonts/font = ExtResource("4_qy0ks")
-text = "Play"
+text = "Continue"
 
 [node name="NewGame" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
@@ -78,7 +78,7 @@ theme_override_fonts/font = ExtResource("4_qy0ks")
 text = "Quit
 "
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -1,5 +1,8 @@
 extends Node
 
+var save_path = "res://player1.data"
+#var game_saved = false
+
 var score = 0
 var current_level = "res://scenes/level1.tscn"
 var last_menu = "main menu"
@@ -61,3 +64,34 @@ func show_fade_label(text: String, position: Vector2):
 	# Queue free after the animation is done
 	await animation_player.animation_finished
 	warning_label.visible = false
+
+func save():
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	file.store_var(score)
+	file.store_var(current_level)
+	file.store_var(Player_Health.health)
+	file.close()
+	print("Saved game")
+	#game_saved = true
+	
+func load_data():
+	if FileAccess.file_exists(save_path):
+		var file = FileAccess.open(save_path, FileAccess.READ)
+		score = file.get_var()
+		current_level = file.get_var()
+		Player_Health.health = file.get_var()
+		file.close()
+		#game_saved = true
+		print("Loaded saved game.")
+		score_label.text = str(score)
+	else:
+		print("No data saved.")
+		#game_saved = false
+		
+func delete_data():
+	if FileAccess.file_exists(save_path):
+		#FileAccess.remove(save_path)
+		print("Save file deleted.")
+		#game_saved = false
+	else:
+		print("No save file to delete.")
