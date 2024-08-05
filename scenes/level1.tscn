@@ -113,7 +113,6 @@ position = Vector2(274, 18)
 
 [node name="Enemy" parent="Flying enemy" instance=ExtResource("9_nws83")]
 position = Vector2(-17, -11)
-SPEED = 60
 
 [node name="Enemy2" parent="Flying enemy" instance=ExtResource("9_nws83")]
 position = Vector2(522, -157)

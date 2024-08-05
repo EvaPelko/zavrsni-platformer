@@ -134,6 +134,7 @@ shape = SubResource("CircleShape2D_vn4xa")
 
 [node name="SplatSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_m2rex")
+bus = &"SFX"
 
 [connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
 [connection signal="body_entered" from="DetectionArea2D" to="." method="_on_detection_area_2d_body_entered"]

@@ -119,5 +119,6 @@ shape = SubResource("RectangleShape2D_i0grr")
 
 [node name="SplatSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_thma4")
+bus = &"SFX"
 
 [connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
