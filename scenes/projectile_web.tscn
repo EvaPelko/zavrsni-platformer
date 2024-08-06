@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1e1awjar347x"]
+
+[ext_resource type="Script" path="res://scripts/projectile_web.gd" id="1_lfyyp"]
+[ext_resource type="Texture2D" uid="uid://brs3ugvuywdbc" path="res://my assets/ui/web-projectile.png" id="2_j4ck3"]
+[ext_resource type="AudioStream" uid="uid://bnnk0lhd0rn2" path="res://assets/sounds/hurt.wav" id="3_srxcp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_00mpo"]
+radius = 3.0
+
+[node name="ProjectileWeb" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_lfyyp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_j4ck3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_00mpo")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_00mpo")
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_srxcp")
+bus = &"SFX"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
