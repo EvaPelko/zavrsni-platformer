@@ -29,6 +29,7 @@ func _on_area_2d_area_entered(area):
 			queue_free()
 		else:
 			print("hit enemy without health component")
+			
 		
 
 func _on_area_2d_body_entered(body):
@@ -36,3 +37,13 @@ func _on_area_2d_body_entered(body):
 		print("hit terrain")
 		audio_player.play()
 		queue_free()
+		
+	if body.is_in_group("boss"):
+		var health_component = body.get_node_or_null("Health")
+		if health_component and health_component.has_method("take_damage"):
+			health_component.take_damage(DAMAGE)
+			print("boss hit and took damage")
+			audio_player.play()
+			queue_free()
+		else:
+			print("hit boss without health component")

@@ -1,7 +1,9 @@
-[gd_scene load_steps=46 format=3 uid="uid://baoyjuljlmt1n"]
+[gd_scene load_steps=52 format=3 uid="uid://baoyjuljlmt1n"]
 
 [ext_resource type="Texture2D" uid="uid://cuiob0moarilm" path="res://my assets/sprites/NPCs/enemies/boss/glitch-boss-bite-Sheet.png" id="1_hbrm4"]
+[ext_resource type="Script" path="res://scripts/boss.gd" id="1_qg5gu"]
 [ext_resource type="Texture2D" uid="uid://b2rolcb3x4qxt" path="res://my assets/sprites/NPCs/enemies/boss/glitch-boss-idle-Sheet.png" id="3_c050h"]
+[ext_resource type="Texture2D" uid="uid://ywqm20on0kye" path="res://my assets/sprites/NPCs/enemies/boss/glitch-boss-die-Sheet.png" id="3_fef62"]
 [ext_resource type="Texture2D" uid="uid://bcmddduwyo6le" path="res://my assets/sprites/NPCs/enemies/boss/glitch-boss-jump-Sheet.png" id="3_k4r7v"]
 [ext_resource type="Texture2D" uid="uid://4dea04b5pfgh" path="res://my assets/sprites/NPCs/enemies/boss/glitch-boss-land-Sheet.png" id="4_s10ti"]
 [ext_resource type="Texture2D" uid="uid://chny5ic0wjer6" path="res://my assets/sprites/NPCs/enemies/boss/glitch-boss-walk-Sheet.png" id="4_tnsr4"]
@@ -24,6 +26,22 @@ region = Rect2(224, 0, 112, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pgrwn"]
 atlas = ExtResource("1_hbrm4")
+region = Rect2(336, 0, 112, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxdvw"]
+atlas = ExtResource("3_fef62")
+region = Rect2(0, 0, 112, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilu8j"]
+atlas = ExtResource("3_fef62")
+region = Rect2(112, 0, 112, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f234t"]
+atlas = ExtResource("3_fef62")
+region = Rect2(224, 0, 112, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n8gq"]
+atlas = ExtResource("3_fef62")
 region = Rect2(336, 0, 112, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukm48"]
@@ -159,6 +177,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_kxdvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilu8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f234t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n8gq")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ukm48")
 }, {
 "duration": 1.0,
@@ -271,20 +306,21 @@ animations = [{
 height = 34.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t0m0f"]
-radius = 165.048
+radius = 112.071
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tvjsp"]
 size = Vector2(12.375, 7.6875)
 
-[node name="boss" type="CharacterBody2D"]
+[node name="boss" type="CharacterBody2D" groups=["boss"]]
+script = ExtResource("1_qg5gu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -32)
 sprite_frames = SubResource("SpriteFrames_6bpx0")
-animation = &"bite"
+animation = &"die"
 autoplay = "idle"
 frame = 3
-frame_progress = 0.209693
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, -20)
@@ -300,7 +336,6 @@ shape = SubResource("CircleShape2D_t0m0f")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("7_4pyfh")
-max_health = 1
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(4, -13)
@@ -322,3 +357,7 @@ shape = SubResource("RectangleShape2D_tvjsp")
 [node name="SplatSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_r0xfm")
 bus = &"SFX"
+
+[connection signal="body_entered" from="DetectionArea2D" to="." method="_on_detection_area_2d_body_entered"]
+[connection signal="body_exited" from="DetectionArea2D" to="." method="_on_detection_area_2d_body_exited"]
+[connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
