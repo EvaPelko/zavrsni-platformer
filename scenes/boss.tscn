@@ -317,10 +317,10 @@ script = ExtResource("1_qg5gu")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -32)
 sprite_frames = SubResource("SpriteFrames_6bpx0")
-animation = &"die"
+animation = &"run"
 autoplay = "idle"
-frame = 3
-frame_progress = 1.0
+frame = 6
+frame_progress = 0.702129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, -20)
@@ -331,7 +331,7 @@ shape = SubResource("CapsuleShape2D_fvamq")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2D"]
-position = Vector2(2, -19)
+position = Vector2(2, -10)
 shape = SubResource("CircleShape2D_t0m0f")
 
 [node name="Health" type="Node" parent="."]
