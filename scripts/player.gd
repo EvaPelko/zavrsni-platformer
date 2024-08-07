@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 120.0
+@export var SPEED = 120.0
 const JUMP_VELOCITY = -280.0
 const FALL_MULTIPLIER = 1.5  # Gravity multiplier for falling
 const FALL_ANIMATION_THRESHOLD = 0.1  # Time in seconds before the fall animation plays
@@ -39,6 +39,8 @@ var player_position = Vector2()
 @onready var duck_collision_shape = $DuckCollisionShape2D
 @onready var audio_player = $HurtSound
 
+var is_throwing = false
+
 func _ready():
 	gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 	# Ensure the normal collision shape is visible and the duck collision shape is hidden at the start
@@ -47,7 +49,6 @@ func _ready():
 	
 	Player_Health.health_depleted.connect(_on_player_health_depleted)
 	Player_Health.damage_taken.connect(_on_player_damage_taken)
-	
 
 func _physics_process(delta):
 	# Handle gravity
@@ -56,14 +57,17 @@ func _physics_process(delta):
 			velocity.y += gravity * FALL_MULTIPLIER * delta
 			fall_time += delta
 			if fall_time > FALL_ANIMATION_THRESHOLD:
-				animated_sprite.play("fall")
+				if not is_throwing:
+					animated_sprite.play("fall")
 		elif abs(velocity.y) < ANTI_GRAVITY_APEX_THRESHOLD:  # Near the apex of the jump
 			velocity.y += gravity * ANTI_GRAVITY_APEX_MULTIPLIER * delta
-			animated_sprite.play("jump")
+			if not is_throwing:
+				animated_sprite.play("jump")
 			fall_time = 0.0  # Reset fall time when rising
 		else:  # Rising or at the apex
 			velocity.y += gravity * delta
-			animated_sprite.play("jump")
+			if not is_throwing:
+				animated_sprite.play("jump")
 			fall_time = 0.0  # Reset fall time when rising
 	else:
 		velocity.y = 0
@@ -143,7 +147,7 @@ func _physics_process(delta):
 		animated_sprite.flip_h = true
 	
 	# Play animation
-	if not is_dashing:
+	if not is_dashing and not is_throwing:
 		if is_on_floor():
 			if direction == 0:
 				if Input.is_action_pressed("duck"):
@@ -170,16 +174,23 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	# Handle throwing projectiles
-	if Input.is_action_just_pressed("shoot"):
-		shoot()
-		
+	handle_throw_animation()
+
 	move_and_slide()
 
-
+func handle_throw_animation():
+	if is_throwing:
+		if animated_sprite.animation == "throw" and !animated_sprite.is_playing():
+			is_throwing = false  # Animation finished
+	else:
+		# Check if throw action is triggered
+		if Input.is_action_just_pressed("shoot"):
+			shoot()
 
 func shoot():
 	if GameManager.score > 0:
 		animated_sprite.play("throw")
+		is_throwing = true
 		var projectile = projectile_scene.instantiate()
 		var direction = Vector2.RIGHT if not animated_sprite.flip_h else Vector2.LEFT
 		var angle = throw_angle if animated_sprite.flip_h else -throw_angle
