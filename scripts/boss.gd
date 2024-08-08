@@ -3,8 +3,8 @@ extends CharacterBody2D
 @export var SPEED = 70
 @export var JUMP_FORCE = 300
 @export var GRAVITY = 800
-@export var JUMP_HORIZONTAL_MULTIPLIER = 2.0 # Multiplier for horizontal jump distance
-var direction = 1 # Start by moving right
+@export var JUMP_HORIZONTAL_MULTIPLIER = 2.0  # Multiplier for horizontal jump distance
+var direction = 1  # Start by moving right
 var is_alive = true
 
 @onready var animated_sprite = $AnimatedSprite2D
@@ -32,8 +32,13 @@ func _physics_process(delta):
 		patrol(delta)
 
 	# Apply gravity
-	if not jumping:  # Only apply gravity when not in the jump animation
+	if not on_ground:
 		velocity.y += GRAVITY * delta
+
+	# Handle horizontal movement when not on the ground (e.g., during a jump)
+	if not on_ground and jumping and player:
+		var direction_to_player = (player.global_position - global_position).normalized()
+		velocity.x = direction_to_player.x * SPEED * JUMP_HORIZONTAL_MULTIPLIER
 
 	# Move the boss and check for ground collision
 	move_and_slide()
@@ -41,13 +46,14 @@ func _physics_process(delta):
 	on_ground = is_on_floor()
 
 	# Play run animation if the boss is moving and on the ground
-	if on_ground and not jumping:
+	if on_ground:
+		jumping = false
 		if abs(velocity.x) > 0:
 			animated_sprite.play("run")
 		else:
 			animated_sprite.stop()
 	elif not on_ground and not jumping:
-		animated_sprite.stop()
+		jumping = true
 
 func patrol(delta):
 	if ray_cast_right.is_colliding():
@@ -61,7 +67,7 @@ func patrol(delta):
 	animated_sprite.flip_h = direction == 1
 
 func move_towards_player(delta):
-	if player:
+	if player and not jumping:
 		if should_jump and on_ground:
 			jump_towards_player()
 		else:
@@ -72,23 +78,11 @@ func move_towards_player(delta):
 func jump_towards_player():
 	if player:
 		jumping = true  # Indicate that the boss is in the jump animation
-		velocity = Vector2.ZERO  # Make the boss stay still during the animation
-		var direction_to_player = (player.global_position - global_position).normalized()
-		animated_sprite.flip_h = direction_to_player.x > 0
+		velocity.y = -JUMP_FORCE  # Apply vertical jump force only
+		animated_sprite.flip_h = player.global_position.x > global_position.x
 		animated_sprite.play("jump")
 
-		#print("Jumping towards player: ", direction_to_player)
-
-		await animated_sprite.animation_finished
-		
-		# Apply jump force in both x and y directions
-		velocity.x = direction_to_player.x * SPEED * JUMP_HORIZONTAL_MULTIPLIER
-		velocity.y = -JUMP_FORCE
-
-		#print("Applied jump velocity: ", velocity)
-
 		should_jump = false  # Reset the jump flag after jumping
-		jumping = false  # Reset jumping state after the animation
 
 func _on_detection_area_2d_body_entered(body):
 	if body.is_in_group("player"):
