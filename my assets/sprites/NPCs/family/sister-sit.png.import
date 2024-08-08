@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx0hnppno17q"
-path="res://.godot/imported/house.png-99bbd547ed5bfbe178f7da46dd7f6c81.ctex"
+uid="uid://detprc2b26ckn"
+path="res://.godot/imported/sister-sit.png-36dc7041fabdfe6fe9ae43db9999c722.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://my assets/sprites/house.png"
-dest_files=["res://.godot/imported/house.png-99bbd547ed5bfbe178f7da46dd7f6c81.ctex"]
+source_file="res://my assets/sprites/NPCs/family/sister-sit.png"
+dest_files=["res://.godot/imported/sister-sit.png-36dc7041fabdfe6fe9ae43db9999c722.ctex"]
 
 [params]
 

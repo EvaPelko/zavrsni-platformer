@@ -77,7 +77,7 @@ position = Vector2(194, -16)
 position = Vector2(-17, -11)
 
 [node name="Teleport" parent="." instance=ExtResource("7_r10jy")]
-position = Vector2(493, -87)
+position = Vector2(178, -6)
 
 [node name="Enemy2" type="Node" parent="."]
 

@@ -55,7 +55,7 @@ func patrol(delta):
 	elif ray_cast_left.is_colliding():
 		direction = 1
 
-	if on_ground:
+	if on_ground and not jumping:
 		velocity.x = direction * SPEED
 
 	animated_sprite.flip_h = direction == 1
@@ -82,7 +82,7 @@ func jump_towards_player():
 		await animated_sprite.animation_finished
 		
 		# Apply jump force in both x and y directions
-		velocity.x = direction_to_player.x * SPEED + 200
+		velocity.x = direction_to_player.x * SPEED * JUMP_HORIZONTAL_MULTIPLIER
 		velocity.y = -JUMP_FORCE
 
 		#print("Applied jump velocity: ", velocity)

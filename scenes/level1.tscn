@@ -130,4 +130,4 @@ text = "Space to jump
 X to dash"
 
 [node name="Teleport" parent="." instance=ExtResource("12_m0hma")]
-position = Vector2(725, -127)
+position = Vector2(360, 9)
