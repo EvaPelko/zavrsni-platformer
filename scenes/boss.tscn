@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://baoyjuljlmt1n"]
+[gd_scene load_steps=54 format=3 uid="uid://baoyjuljlmt1n"]
 
 [ext_resource type="Texture2D" uid="uid://cuiob0moarilm" path="res://my assets/sprites/NPCs/enemies/boss/glitch-boss-bite-Sheet.png" id="1_hbrm4"]
 [ext_resource type="Script" path="res://scripts/boss.gd" id="1_qg5gu"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bcmddduwyo6le" path="res://my assets/sprites/NPCs/enemies/boss/glitch-boss-jump-Sheet.png" id="3_k4r7v"]
 [ext_resource type="Texture2D" uid="uid://4dea04b5pfgh" path="res://my assets/sprites/NPCs/enemies/boss/glitch-boss-land-Sheet.png" id="4_s10ti"]
 [ext_resource type="Texture2D" uid="uid://chny5ic0wjer6" path="res://my assets/sprites/NPCs/enemies/boss/glitch-boss-walk-Sheet.png" id="4_tnsr4"]
+[ext_resource type="Texture2D" uid="uid://b0f5rxls4uola" path="res://my assets/sprites/NPCs/enemies/boss/glitch-boss-falling.png" id="4_y62f7"]
 [ext_resource type="Texture2D" uid="uid://5uubc81o3d3n" path="res://my assets/sprites/NPCs/enemies/boss/glitch-boss-shoot-Sheet.png" id="6_fc1fq"]
 [ext_resource type="Script" path="res://scripts/health.gd" id="7_4pyfh"]
 [ext_resource type="Script" path="res://scripts/hitbox.gd" id="8_ioaxl"]
@@ -43,6 +44,10 @@ region = Rect2(224, 0, 112, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7n8gq"]
 atlas = ExtResource("3_fef62")
 region = Rect2(336, 0, 112, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf48m"]
+atlas = ExtResource("4_y62f7")
+region = Rect2(0, 0, 112, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukm48"]
 atlas = ExtResource("3_c050h")
@@ -194,6 +199,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_lf48m")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ukm48")
 }, {
 "duration": 1.0,
@@ -317,10 +330,8 @@ script = ExtResource("1_qg5gu")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -32)
 sprite_frames = SubResource("SpriteFrames_6bpx0")
-animation = &"run"
+animation = &"land"
 autoplay = "idle"
-frame = 6
-frame_progress = 0.702129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, -20)
