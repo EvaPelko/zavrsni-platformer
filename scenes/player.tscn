@@ -227,11 +227,11 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x1q4s"]
 radius = 2.0
-height = 12.0
+height = 10.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_daskb"]
 radius = 2.0
-height = 8.0
+height = 6.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 5
@@ -245,11 +245,11 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="NormalCollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
+position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_x1q4s")
 
 [node name="DuckCollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
+position = Vector2(0, -3)
 shape = SubResource("CapsuleShape2D_daskb")
 
 [node name="HurtBox" type="Area2D" parent="."]

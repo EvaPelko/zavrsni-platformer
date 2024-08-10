@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://baoyjuljlmt1n"]
+[gd_scene load_steps=56 format=3 uid="uid://baoyjuljlmt1n"]
 
 [ext_resource type="Texture2D" uid="uid://cuiob0moarilm" path="res://my assets/sprites/NPCs/enemies/boss/glitch-boss-bite-Sheet.png" id="1_hbrm4"]
 [ext_resource type="Script" path="res://scripts/boss.gd" id="1_qg5gu"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scripts/health.gd" id="7_4pyfh"]
 [ext_resource type="Script" path="res://scripts/hitbox.gd" id="8_ioaxl"]
 [ext_resource type="AudioStream" uid="uid://dcpiys7080kvk" path="res://assets/sounds/719129__sebastientate__splat-1.wav" id="9_r0xfm"]
+[ext_resource type="Script" path="res://scripts/PassthroughArea.gd" id="10_mqnwa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vrpa3"]
 atlas = ExtResource("1_hbrm4")
@@ -321,6 +322,9 @@ height = 34.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_t0m0f"]
 radius = 112.071
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k7ycp"]
+size = Vector2(9.00001, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tvjsp"]
 size = Vector2(12.375, 7.6875)
 
@@ -344,6 +348,14 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2D"]
 position = Vector2(2, -10)
 shape = SubResource("CircleShape2D_t0m0f")
+
+[node name="PassthroughArea" type="Area2D" parent="."]
+script = ExtResource("10_mqnwa")
+
+[node name="CollisionShape2DPassable" type="CollisionShape2D" parent="PassthroughArea"]
+position = Vector2(0.500004, -10)
+rotation = -3.14159
+shape = SubResource("RectangleShape2D_k7ycp")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("7_4pyfh")
