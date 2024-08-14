@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4ukrnbx7cj5y"]
+
+[ext_resource type="Texture2D" uid="uid://c6ygil2d8qs2h" path="res://assets/dialogue_box.png" id="1_e6gxw"]
+[ext_resource type="FontFile" uid="uid://mlgwk6ivoocr" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_i1cg4"]
+[ext_resource type="FontFile" uid="uid://ccqeo75plmx8k" path="res://assets/fonts/PixelOperator8.ttf" id="3_20xmy"]
+
+[node name="dialogue" type="CanvasLayer"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 319.0
+offset_top = 517.0
+offset_right = 860.0
+offset_bottom = 625.0
+texture = ExtResource("1_e6gxw")
+region_rect = Rect2(-0.105515, 0.303373, 31.7205, 30.576)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 4
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 259.0
+offset_bottom = 30.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_i1cg4")
+text = "Name"
+
+[node name="Chat" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 34.0
+offset_right = 259.0
+offset_bottom = 52.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_20xmy")
+theme_override_font_sizes/normal_font_size = 16
+text = "Chatting..."

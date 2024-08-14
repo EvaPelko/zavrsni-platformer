@@ -1,9 +1,11 @@
 extends Area2D
 
 
-@onready var animation_player = $AnimationPlayer
+@onready var audio_player = $PickupSound
 
 
 func _on_body_entered(body):
 	GameManager.add_point()
-	animation_player.play("pickup")
+	audio_player.play()
+	await audio_player.finished
+	queue_free()

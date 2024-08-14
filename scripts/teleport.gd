@@ -1,7 +1,5 @@
 extends Area2D
 
-
-
 func _on_body_entered(body):
 	if body.is_in_group("player"):
 		print("player teleports")
@@ -11,5 +9,8 @@ func _on_body_entered(body):
 		GameManager.current_level = next_scene_path
 		print(GameManager.current_level)
 		GameManager.show_fade_label("Saving game... switching levels...", global_position)
-		get_tree().change_scene_to_file(next_scene_path)
+		call_deferred("_change_scene", next_scene_path)
 		GameManager.save()
+
+func _change_scene(next_scene_path):
+	get_tree().change_scene_to_file(next_scene_path)
