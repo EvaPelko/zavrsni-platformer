@@ -88,6 +88,7 @@ func set_state(new_state):
 				var direction_to_player = (player.global_position - global_position).normalized()
 				velocity.x = direction_to_player.x * SPEED  # Set velocity towards player
 				flip_direction(direction_to_player.x > 0)
+			
 		State.SHOOTING:
 			animated_sprite.play("shoot")
 			velocity.x = 0
@@ -117,17 +118,12 @@ func state_idle(delta):
 
 func state_patrol(delta):
 	if ray_cast_right.is_colliding():
-		print('wall detected to the right')
-		flip_direction(false)
-		velocity.x = -SPEED
+		direction = -1
 	elif ray_cast_left.is_colliding():
-		print('wall detected to the left')
-		flip_direction(true)
-		velocity.x = SPEED
-	else:
-		flip_direction(true)
-		velocity.x = SPEED
-		
+		direction = 1
+
+	velocity.x = direction * SPEED
+	flip_direction(direction == 1)
 
 	if player:
 		set_state(State.CHASING)  # Change to CHASING state if player is detected
@@ -193,7 +189,7 @@ func flip_direction(is_facing_right):
 		if left_collision_distance < flip_padding:
 			return
 
-	#print("flip direction")
+	print("flip direction")
 	animated_sprite.flip_h = is_facing_right
 	collision_shape.position = new_collision_position
 	collision_shape_hitbox.position = new_hitbox_position

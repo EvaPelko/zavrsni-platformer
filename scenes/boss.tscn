@@ -364,7 +364,7 @@ shape = SubResource("RectangleShape2D_k7ycp")
 script = ExtResource("7_4pyfh")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(4, -13)
+position = Vector2(24, -13)
 target_position = Vector2(8, 0)
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
