@@ -316,8 +316,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fvamq"]
-height = 34.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2l56"]
+size = Vector2(34, 45)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t0m0f"]
 radius = 112.071
@@ -329,20 +329,22 @@ size = Vector2(9.00001, 20)
 size = Vector2(12.375, 7.6875)
 
 [node name="boss" type="CharacterBody2D" groups=["boss"]]
+collision_layer = 4
 script = ExtResource("1_qg5gu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -32)
 sprite_frames = SubResource("SpriteFrames_6bpx0")
-animation = &"land"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, -20)
+position = Vector2(7.5, -17)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_fvamq")
+shape = SubResource("RectangleShape2D_s2l56")
 
 [node name="DetectionArea2D" type="Area2D" parent="."]
+visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2D"]
@@ -350,6 +352,7 @@ position = Vector2(2, -10)
 shape = SubResource("CircleShape2D_t0m0f")
 
 [node name="PassthroughArea" type="Area2D" parent="."]
+visible = false
 script = ExtResource("10_mqnwa")
 
 [node name="CollisionShape2DPassable" type="CollisionShape2D" parent="PassthroughArea"]
