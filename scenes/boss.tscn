@@ -368,7 +368,7 @@ position = Vector2(24, -13)
 target_position = Vector2(8, 0)
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(-3, -13)
+position = Vector2(-11, -13)
 target_position = Vector2(-8, 0)
 
 [node name="HitBox" type="Area2D" parent="."]

@@ -81,14 +81,15 @@ func set_state(new_state):
 			velocity.x = 0
 		State.PATROL:
 			animated_sprite.play("run")
-			direction = 1  # Assume patrol starts right
 		State.CHASING:
 			animated_sprite.play("run")
 			if player and not jumping:  # Check if player is present and not jumping
-				var direction_to_player = (player.global_position - global_position).normalized()
-				velocity.x = direction_to_player.x * SPEED  # Set velocity towards player
-				flip_direction(direction_to_player.x > 0)
-			
+				direction = (player.global_position - global_position).normalized()
+				print(direction.x)
+				velocity.x = direction.x * SPEED  # Set velocity towards player
+				flip_direction(direction.x > 0)
+				direction = -1 if direction.x < 0 else 1
+				print(direction)
 		State.SHOOTING:
 			animated_sprite.play("shoot")
 			velocity.x = 0
