@@ -67,10 +67,6 @@ func _physics_process(delta):
 
 	on_ground = is_on_floor()
 
-	# Transition from falling to chasing when the boss lands
-	if current_state == State.FALLING and on_ground:
-		set_state(State.CHASING)
-
 # State management
 func set_state(new_state):
 	current_state = new_state
@@ -99,12 +95,13 @@ func set_state(new_state):
 			else:
 				set_state(State.IDLE)
 		State.JUMPING:
+			velocity.x = 0
 			animated_sprite.play("jump")
 			await animated_sprite.animation_finished  # Wait for the jump animation to finish
 			perform_jump()  # Perform the jump action
-			set_state(State.FALLING)
 		State.FALLING:
 			animated_sprite.play("fall")
+			print('falling')
 		State.DEAD:
 			animated_sprite.play("die")
 			velocity = Vector2.ZERO
@@ -160,6 +157,7 @@ func state_falling(delta):
 		var direction_to_player = (player.global_position - global_position).normalized()
 		velocity.x = direction_to_player.x * SPEED * JUMP_HORIZONTAL_MULTIPLIER
 	elif on_ground:
+		print('hit ground')
 		velocity = Vector2.ZERO  # Reset velocity upon landing
 		jumping = false  # Reset jumping flag when landing
 		set_state(State.CHASING)
@@ -167,6 +165,7 @@ func state_falling(delta):
 # Jump action towards the player
 func perform_jump():
 	if player:
+		print('tried jumping')
 		jumping = true
 		velocity.y = -JUMP_FORCE  # Apply vertical jump force
 		flip_direction(player.global_position.x > global_position.x)
