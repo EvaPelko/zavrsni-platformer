@@ -344,11 +344,10 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_s2l56")
 
 [node name="DetectionArea2D" type="Area2D" parent="."]
-visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2D"]
-position = Vector2(2, -10)
+position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_t0m0f")
 
 [node name="PassthroughArea" type="Area2D" parent="."]
@@ -364,11 +363,11 @@ shape = SubResource("RectangleShape2D_k7ycp")
 script = ExtResource("7_4pyfh")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(24, -13)
+position = Vector2(22, -13)
 target_position = Vector2(8, 0)
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(-11, -13)
+position = Vector2(-22, -13)
 target_position = Vector2(-8, 0)
 
 [node name="HitBox" type="Area2D" parent="."]
