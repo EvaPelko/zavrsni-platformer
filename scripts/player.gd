@@ -7,6 +7,8 @@ const FALL_ANIMATION_THRESHOLD = 0.1  # Time in seconds before the fall animatio
 const EARLY_FALL_MULTIPLIER = 3.0  # Gravity multiplier for early fall
 const ANTI_GRAVITY_APEX_THRESHOLD = 30.0  # Velocity threshold for anti-gravity apex
 const ANTI_GRAVITY_APEX_MULTIPLIER = 0.5  # Gravity multiplier at the apex of the jump
+var current_speed = SPEED
+var current_jump_velocity = JUMP_VELOCITY
 
 const DASH_SPEED = 450.0
 const DASH_DURATION = 0.13  # Duration of the dash in seconds
@@ -78,7 +80,7 @@ func _physics_process(delta):
 		coyote_timer = COYOTE_TIME
 		# Check if there is a buffered jump
 		if jump_buffer_timer > 0:
-			velocity.y = JUMP_VELOCITY
+			velocity.y = current_jump_velocity
 			jump_buffer_timer = 0
 			can_doublejump = true  # Allow double jump after buffered jump
 	else:
@@ -87,14 +89,14 @@ func _physics_process(delta):
 	# Handle Jump and Double Jump
 	if is_on_floor():
 		if Input.is_action_just_pressed("jump"):
-			velocity.y = JUMP_VELOCITY
+			velocity.y = current_jump_velocity
 			can_doublejump = true
 	elif coyote_timer > 0 and Input.is_action_just_pressed("jump"):
-		velocity.y = JUMP_VELOCITY
+		velocity.y = current_jump_velocity
 		coyote_timer = 0  # Reset coyote timer after jumping
 		can_doublejump = true  # Allow double jump after coyote jump
 	elif Input.is_action_just_pressed("jump") and can_doublejump:
-		velocity.y = JUMP_VELOCITY
+		velocity.y = current_jump_velocity
 		can_doublejump = false
 	elif Input.is_action_just_pressed("jump"):
 		# Buffer the jump if in the air and not able to jump
@@ -169,9 +171,9 @@ func _physics_process(delta):
 
 	# Apply movement
 	if direction and not is_dashing:
-		velocity.x = direction * SPEED
+		velocity.x = direction * current_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, current_speed)
 
 	# Handle throwing projectiles
 	handle_throw_animation()
@@ -211,3 +213,15 @@ func _on_player_health_depleted():
 	GameManager.show_fade_label("You died", global_position)
 	normal_collision_shape.set_deferred("disabled", true)
 	duck_collision_shape.set_deferred("disabled", true)
+	
+func slow():
+	current_speed *= 0.5
+	current_jump_velocity *= 0.85
+	var timer := Timer.new()
+	add_child(timer)
+	timer.wait_time = 2.0
+	timer.one_shot = true
+	timer.start()
+	await timer.timeout
+	current_speed = SPEED
+	current_jump_velocity = JUMP_VELOCITY

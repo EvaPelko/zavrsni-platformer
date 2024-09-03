@@ -11,10 +11,11 @@ var velocity: Vector2
 func _ready():
 	# Initialize velocity based on direction and speed
 	velocity = direction * SPEED
+	print('projectile created')
 
 func _process(delta):
 	# Apply gravity to vertical velocity
-	velocity.y += gravity * delta
+	#velocity.y += gravity * delta
 	# Update position based on velocity
 	position += velocity * delta
 	
@@ -35,4 +36,5 @@ func _on_area_2d_body_entered(body):
 		print("web hit player and took damage")
 		Player_Health.health -= DAMAGE
 		audio_player.play()
+		body.slow()
 		queue_free()

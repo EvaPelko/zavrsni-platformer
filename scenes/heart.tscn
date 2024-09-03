@@ -120,6 +120,7 @@ _data = {
 }
 
 [node name="Heart" type="Area2D"]
+collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_idt5o")
 
@@ -138,5 +139,9 @@ bus = &"SFX"
 libraries = {
 "": SubResource("AnimationLibrary_ghoa6")
 }
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
