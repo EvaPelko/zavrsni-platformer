@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://3mt6d17y3igh"]
+
+[ext_resource type="Script" path="res://scripts/chair.gd" id="1_fni2k"]
+[ext_resource type="Texture2D" uid="uid://bwi5bff52bfaj" path="res://my assets/sprites/chair.png" id="1_gy261"]
+[ext_resource type="PackedScene" uid="uid://ddvchyv46c4xx" path="res://scenes/interactable_popup.tscn" id="2_kr2gi"]
+[ext_resource type="Texture2D" uid="uid://dl7l6uaevm2av" path="res://my assets/sprites/chair-sat.png" id="3_ruwyr"]
+
+[node name="Chair" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_fni2k")
+
+[node name="chair" type="Sprite2D" parent="."]
+texture = ExtResource("1_gy261")
+
+[node name="chair_sat" type="Sprite2D" parent="."]
+texture = ExtResource("3_ruwyr")
+
+[node name="Interactable" parent="." instance=ExtResource("2_kr2gi")]
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
