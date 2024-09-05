@@ -225,8 +225,6 @@ script = ExtResource("1_itx8h")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e1djq")
 animation = &"glitch 1"
-frame = 7
-frame_progress = 1.0
 
 [node name="Interactable" parent="." instance=ExtResource("5_aiiub")]
 

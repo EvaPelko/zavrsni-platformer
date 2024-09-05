@@ -46,11 +46,16 @@ layer_1/z_index = 7
 layer_1/tile_data = PackedInt32Array(3670094, 1245184, 0, 3735630, 1245184, 1, 3670095, 1310720, 0, 3735631, 1310720, 1, 3670096, 1376256, 0, 3735632, 1376256, 1, 3670093, 1179648, 0, 3735629, 1179648, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_ndij0")]
-position = Vector2(574, 436)
+position = Vector2(613, 462)
 SPEED = 60.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -6)
 zoom = Vector2(5, 5)
+limit_left = 490
+limit_top = 350
+limit_right = 750
+limit_bottom = 500
 position_smoothing_enabled = true
 position_smoothing_speed = 30.0
 
