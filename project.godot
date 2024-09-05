@@ -34,7 +34,7 @@ directories/dtl_directory={
 "lamp_intro": "res://Dialogic/timelines/lamp_intro.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://Dialogic/custom.tres"]
+layout/style_list=["res://Dialogic/custom.tres", "res://my assets/sprites/visual_novel.tres"]
 layout/default_style="res://Dialogic/custom.tres"
 variables={}
 extensions_folder="res://addons/dialogic_additions"

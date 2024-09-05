@@ -25,6 +25,7 @@ func _on_area_2d_body_exited(body):
 		label.visible = false
 		panel.visible = false
 		print(label.visible)
+		Dialogic.end_timeline()
 		
 func _physics_process(delta):
 	if Input.is_action_just_pressed("interact") and interactable:

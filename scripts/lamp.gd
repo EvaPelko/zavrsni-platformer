@@ -15,3 +15,4 @@ func _ready():
 
 func _on_interactable_interacted():
 	animated_sprite.play("glitch 2")
+	Dialogic.start("lamp_intro")
