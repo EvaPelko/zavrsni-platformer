@@ -16,8 +16,10 @@ script = ExtResource("1_lpuey")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 1150.0
-offset_bottom = 650.0
+offset_left = -441.0
+offset_top = -210.0
+offset_right = 1657.0
+offset_bottom = 976.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
