@@ -10,6 +10,8 @@ var last_menu = "main menu"
 @onready var warning_label = $CanvasLayer/MarginContainer/Warning
 @onready var animation_player = $AnimationPlayer
 @onready var score_label = $UI/Score/ScoreLabel
+@onready var health_ui = $UI/HealthUI
+@onready var score_ui = $UI/Score
 @onready var timer = $Timer
 
 signal toggle_game_paused(is_paused : bool)
@@ -17,6 +19,7 @@ signal toggle_game_paused(is_paused : bool)
 func _ready():
 	Player_Health.health_depleted.connect(_on_player_health_health_depleted)
 	warning_label.visible = false
+	hide_ui()
 
 func add_point():
 	score += 1
@@ -112,3 +115,11 @@ func delete_data():
 #	file.close()
 	score_label.text = str(score)
 	print("Overwritten save file, starting new game")
+
+func hide_ui():
+	health_ui.visible = false
+	score_ui.visible = false
+	
+func show_ui():
+	health_ui.visible = true
+	score_ui.visible = true

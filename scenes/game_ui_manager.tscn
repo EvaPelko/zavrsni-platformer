@@ -17,7 +17,7 @@ _data = {
 [node name="GameUiManager" type="Node"]
 script = ExtResource("1_l77jh")
 
-[node name="UI" type="Node" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HealthUI" parent="UI" instance=ExtResource("1_p6ggg")]
 

@@ -8,6 +8,7 @@ extends Control
 func _on_back_pressed():
 	if(GameManager.last_menu == "main menu"):
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+		GameManager.hide_ui()
 	else:
 		get_tree().change_scene_to_file(GameManager.current_level)
 		GameManager.game_paused = true

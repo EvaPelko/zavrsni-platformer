@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d4b2htqt3ulka"]
+[gd_scene load_steps=15 format=3 uid="uid://d4b2htqt3ulka"]
 
 [ext_resource type="FontFile" uid="uid://ccqeo75plmx8k" path="res://assets/fonts/PixelOperator8.ttf" id="3_u5iuo"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="4_2va4g"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cawwc131jlg28" path="res://scenes/killzone.tscn" id="7_tdln2"]
 [ext_resource type="PackedScene" uid="uid://dekdotk8k6pfc" path="res://scenes/coin.tscn" id="8_fy4lp"]
 [ext_resource type="PackedScene" uid="uid://f54gygty6bmw" path="res://scenes/enemy.tscn" id="9_fh73w"]
+[ext_resource type="PackedScene" uid="uid://b3ih1l88y0nba" path="res://scenes/disappearing_lamp.tscn" id="12_635t7"]
 [ext_resource type="PackedScene" uid="uid://dfuhennwjx52n" path="res://scenes/teleport.tscn" id="12_m0hma"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7358v"]
@@ -20,7 +21,12 @@ size = Vector2(32.5, 5)
 [node name="level1" type="Node2D"]
 process_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
 offset_left = -277.0
 offset_top = -384.0
 offset_right = 1723.0
@@ -50,6 +56,7 @@ script = ExtResource("4_2va4g")
 
 [node name="Killzone" parent="." instance=ExtResource("7_tdln2")]
 position = Vector2(150, 91)
+knockback = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_7358v")
@@ -162,3 +169,6 @@ text = "Proceed to next level"
 
 [node name="Teleport" parent="." instance=ExtResource("12_m0hma")]
 position = Vector2(1444, 9)
+
+[node name="DisappearingLamp" parent="." instance=ExtResource("12_635t7")]
+position = Vector2(1381, 18)

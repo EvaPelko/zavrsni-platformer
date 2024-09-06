@@ -39,3 +39,4 @@ func _on_options_button_pressed():
 func _on_main_menu_pressed():
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 	GameManager.game_paused = false
+	GameManager.hide_ui()

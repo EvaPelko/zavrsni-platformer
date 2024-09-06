@@ -1,120 +1,119 @@
-[gd_scene load_steps=34 format=3 uid="uid://dw7oujwbjmgx5"]
+[gd_scene load_steps=34 format=3 uid="uid://b3ih1l88y0nba"]
 
-[ext_resource type="Script" path="res://scripts/lamp.gd" id="1_itx8h"]
-[ext_resource type="Texture2D" uid="uid://xae2i7n77rs3" path="res://my assets/sprites/NPCs/lamp/lamp-glitch1.png" id="1_yw16s"]
-[ext_resource type="Texture2D" uid="uid://dlsx0lrkkt5iw" path="res://my assets/sprites/NPCs/lamp/lamp-glitch2.png" id="2_muaem"]
-[ext_resource type="Texture2D" uid="uid://chwsgr2v5kd32" path="res://my assets/sprites/NPCs/lamp/lamp-glitch3.png" id="3_dtetl"]
-[ext_resource type="PackedScene" uid="uid://ddvchyv46c4xx" path="res://scenes/interactable_popup.tscn" id="5_aiiub"]
+[ext_resource type="Script" path="res://scripts/disappearing_lamp.gd" id="1_hspwl"]
+[ext_resource type="Texture2D" uid="uid://xae2i7n77rs3" path="res://my assets/sprites/NPCs/lamp/lamp-glitch1.png" id="2_gayed"]
+[ext_resource type="Texture2D" uid="uid://dlsx0lrkkt5iw" path="res://my assets/sprites/NPCs/lamp/lamp-glitch2.png" id="3_ljdxu"]
+[ext_resource type="Texture2D" uid="uid://chwsgr2v5kd32" path="res://my assets/sprites/NPCs/lamp/lamp-glitch3.png" id="4_5x2we"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n4krj"]
-atlas = ExtResource("1_yw16s")
+atlas = ExtResource("2_gayed")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dgo8l"]
-atlas = ExtResource("1_yw16s")
+atlas = ExtResource("2_gayed")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i7237"]
-atlas = ExtResource("1_yw16s")
+atlas = ExtResource("2_gayed")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rywpd"]
-atlas = ExtResource("1_yw16s")
+atlas = ExtResource("2_gayed")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sndeo"]
-atlas = ExtResource("1_yw16s")
+atlas = ExtResource("2_gayed")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hp57y"]
-atlas = ExtResource("1_yw16s")
+atlas = ExtResource("2_gayed")
 region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ft4j"]
-atlas = ExtResource("1_yw16s")
+atlas = ExtResource("2_gayed")
 region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j0d3i"]
-atlas = ExtResource("1_yw16s")
+atlas = ExtResource("2_gayed")
 region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h0yys"]
-atlas = ExtResource("2_muaem")
+atlas = ExtResource("3_ljdxu")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uh0dg"]
-atlas = ExtResource("2_muaem")
+atlas = ExtResource("3_ljdxu")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7h7bo"]
-atlas = ExtResource("2_muaem")
+atlas = ExtResource("3_ljdxu")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k8ghk"]
-atlas = ExtResource("2_muaem")
+atlas = ExtResource("3_ljdxu")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h3ryx"]
-atlas = ExtResource("2_muaem")
+atlas = ExtResource("3_ljdxu")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h7fx7"]
-atlas = ExtResource("2_muaem")
+atlas = ExtResource("3_ljdxu")
 region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cbksb"]
-atlas = ExtResource("2_muaem")
+atlas = ExtResource("3_ljdxu")
 region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_udnhm"]
-atlas = ExtResource("2_muaem")
+atlas = ExtResource("3_ljdxu")
 region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4yv2u"]
-atlas = ExtResource("2_muaem")
+atlas = ExtResource("3_ljdxu")
 region = Rect2(128, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2742u"]
-atlas = ExtResource("3_dtetl")
+atlas = ExtResource("4_5x2we")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7e0ow"]
-atlas = ExtResource("3_dtetl")
+atlas = ExtResource("4_5x2we")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3oyg0"]
-atlas = ExtResource("3_dtetl")
+atlas = ExtResource("4_5x2we")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v1hio"]
-atlas = ExtResource("3_dtetl")
+atlas = ExtResource("4_5x2we")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jmx1e"]
-atlas = ExtResource("3_dtetl")
+atlas = ExtResource("4_5x2we")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_65o72"]
-atlas = ExtResource("3_dtetl")
+atlas = ExtResource("4_5x2we")
 region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_75363"]
-atlas = ExtResource("3_dtetl")
+atlas = ExtResource("4_5x2we")
 region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e0i3f"]
-atlas = ExtResource("3_dtetl")
+atlas = ExtResource("4_5x2we")
 region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqy02"]
-atlas = ExtResource("3_dtetl")
+atlas = ExtResource("4_5x2we")
 region = Rect2(128, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u3w2p"]
-atlas = ExtResource("1_yw16s")
+atlas = ExtResource("2_gayed")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_e1djq"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_gfgwk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -218,15 +217,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Lamp" type="Node2D"]
-process_mode = 3
-script = ExtResource("1_itx8h")
+[sub_resource type="CircleShape2D" id="CircleShape2D_gxpxs"]
+radius = 26.0
+
+[node name="DisappearingLamp" type="Node2D"]
+script = ExtResource("1_hspwl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_e1djq")
-animation = &"glitch 3"
-frame_progress = 0.807927
+sprite_frames = SubResource("SpriteFrames_gfgwk")
+animation = &"glitch 1"
 
-[node name="Interactable" parent="." instance=ExtResource("5_aiiub")]
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
-[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_gxpxs")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

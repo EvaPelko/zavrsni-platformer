@@ -16,9 +16,11 @@ func _on_interactable_interacted():
 		chair_sat.visible = false
 		var player = get_tree().get_nodes_in_group("player")[0]
 		player.visible = true
-		get_tree().paused = false
+		#get_tree().paused = false
+		player.controls_enabled = true
 	else:
 		chair_sat.visible = true
 		var player = get_tree().get_nodes_in_group("player")[0]
 		player.visible = false
-		get_tree().paused = true
+		#get_tree().paused = true
+		player.controls_enabled = false

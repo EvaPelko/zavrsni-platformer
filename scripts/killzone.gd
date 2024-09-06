@@ -1,6 +1,8 @@
 extends Area2D
 
 @onready var timer = $Timer
+@export var knockback = false
+@export var knockback_velocity = 250
 
 func _on_body_entered(body):
 	print("you died")
@@ -25,3 +27,8 @@ func disable_collision_shapes(body):
 	var duck_collision_shape = body.get_node_or_null("DuckCollisionShape2D")
 	if duck_collision_shape:
 		duck_collision_shape.set_deferred("disabled", true)
+		
+	if knockback:
+		
+		body.velocity.x = 0
+		body.velocity.y = -knockback_velocity

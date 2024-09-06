@@ -18,7 +18,12 @@ size = Vector2(30.5, 5)
 [node name="level4" type="Node2D"]
 process_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
 visible = false
 offset_left = -277.0
 offset_top = -384.0
