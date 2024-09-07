@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4kshxr18yios"]
+[gd_scene load_steps=6 format=3 uid="uid://c4kshxr18yios"]
 
 [ext_resource type="Script" path="res://scripts/Menu.gd" id="1_lpuey"]
+[ext_resource type="Texture2D" uid="uid://dln8hs3tckeju" path="res://my assets/sprites/background tall blue.png" id="2_agr5i"]
 [ext_resource type="Texture2D" uid="uid://clcli6ahfble6" path="res://my assets/ui/main menu/happy palette/TITLE.png" id="2_pdpoy"]
 [ext_resource type="Theme" uid="uid://b5xvr6yqu4j4o" path="res://assets/Default.tres" id="3_08tw8"]
 [ext_resource type="FontFile" uid="uid://mlgwk6ivoocr" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_qy0ks"]
@@ -14,12 +15,31 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lpuey")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = -441.0
-offset_top = -210.0
+offset_top = 499.0
 offset_right = 1657.0
 offset_bottom = 976.0
+color = Color(0.14902, 0.203922, 0.345098, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -445.0
+offset_top = -337.0
+offset_right = 1653.0
+offset_bottom = 140.0
+color = Color(0.192157, 0.27451, 0.384314, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -397.0
+offset_top = 15.0
+offset_right = 1603.0
+offset_bottom = 614.0
+texture = ExtResource("2_agr5i")
+expand_mode = 3
+stretch_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
