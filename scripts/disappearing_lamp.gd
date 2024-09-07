@@ -3,7 +3,7 @@ extends Node2D
 @onready var animated_sprite = $AnimatedSprite2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	animated_sprite.play("glitch 1")
+	animated_sprite.play("glitch 2")
 
 
 func _on_area_2d_body_entered(body):
