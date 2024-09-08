@@ -5,16 +5,18 @@ extends Area2D
 @export var knockback_velocity = 250
 
 func _on_body_entered(body):
-	print("you died")
-	Engine.time_scale = 0.5
+	if body.is_in_group("player"):
+		print("you died")
+		Engine.time_scale = 0.5
 
-	# Disable the collision shapes
-	call_deferred("disable_collision_shapes", body)
+		# Disable the collision shapes
+		call_deferred("disable_collision_shapes", body)
 
-	timer.start()
+		timer.start()
 
 func _on_timer_timeout():
 	Engine.time_scale = 1
+	Player_Health.immortality = false
 	Player_Health.health = 0
 
 func disable_collision_shapes(body):
@@ -29,6 +31,5 @@ func disable_collision_shapes(body):
 		duck_collision_shape.set_deferred("disabled", true)
 		
 	if knockback:
-		
 		body.velocity.x = 0
 		body.velocity.y = -knockback_velocity

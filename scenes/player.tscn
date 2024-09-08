@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cx5ju1d60m2e3"]
+[gd_scene load_steps=39 format=3 uid="uid://cx5ju1d60m2e3"]
 
 [ext_resource type="Texture2D" uid="uid://bwlvygjgxatyc" path="res://my assets/sprites/player - animated-duck.png" id="1_3b4q2"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3dlr8"]
@@ -225,6 +225,27 @@ animations = [{
 "speed": 11.0
 }]
 
+[sub_resource type="Animation" id="Animation_krhmi"]
+resource_name = "flashing"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tc1mk"]
+_data = {
+"flashing": SubResource("Animation_krhmi")
+}
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x1q4s"]
 radius = 2.0
 height = 10.0
@@ -243,6 +264,11 @@ position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_oy4oq")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_tc1mk")
+}
 
 [node name="NormalCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)

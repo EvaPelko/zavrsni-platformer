@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://baoyjuljlmt1n"]
+[gd_scene load_steps=55 format=3 uid="uid://baoyjuljlmt1n"]
 
 [ext_resource type="Texture2D" uid="uid://cuiob0moarilm" path="res://my assets/sprites/NPCs/enemies/boss/glitch-boss-bite-Sheet.png" id="1_hbrm4"]
 [ext_resource type="Script" path="res://scripts/boss.gd" id="1_qg5gu"]
@@ -141,10 +141,6 @@ region = Rect2(1008, 0, 112, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_0tg1l"]
 atlas = ExtResource("4_tnsr4")
 region = Rect2(1120, 0, 112, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4xccb"]
-atlas = ExtResource("4_tnsr4")
-region = Rect2(1232, 0, 112, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uarbc"]
 atlas = ExtResource("6_fc1fq")
@@ -290,13 +286,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0tg1l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4xccb")
 }],
 "loop": true,
 "name": &"run",
-"speed": 7.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -335,10 +328,9 @@ script = ExtResource("1_qg5gu")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -32)
 sprite_frames = SubResource("SpriteFrames_6bpx0")
-animation = &"shoot"
+animation = &"run"
 autoplay = "idle"
-frame = 3
-frame_progress = 1.0
+frame_progress = 0.486041
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7.49999, -16.5)

@@ -42,6 +42,7 @@ var player_position = Vector2()
 @onready var normal_collision_shape = $NormalCollisionShape2D
 @onready var duck_collision_shape = $DuckCollisionShape2D
 @onready var audio_player = $HurtSound
+@onready var animation_player = $AnimatedSprite2D/AnimationPlayer
 
 var is_throwing = false
 
@@ -212,6 +213,11 @@ func shoot():
 
 func _on_player_damage_taken():
 	audio_player.play()
+	Player_Health.set_temporary_immortality(2.0)
+	animation_player.play("flashing")
+	await animation_player.animation_finished
+	animation_player.stop()
+	
 
 func _on_player_health_depleted():
 	GameManager.show_fade_label("You died", global_position)
