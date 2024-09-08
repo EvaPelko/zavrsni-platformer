@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://s22v4ofo4p5q"]
+[gd_scene load_steps=10 format=3 uid="uid://s22v4ofo4p5q"]
 
 [ext_resource type="Script" path="res://scripts/level0.gd" id="1_0v6lh"]
 [ext_resource type="Texture2D" uid="uid://dln8hs3tckeju" path="res://my assets/sprites/background tall blue.png" id="1_wa6mm"]
 [ext_resource type="TileSet" uid="uid://bltmkh2iiav4l" path="res://my assets/sprites/WorldTileSet.tres" id="2_y4trw"]
 [ext_resource type="TileSet" uid="uid://cvho75d1mlfg5" path="res://my assets/sprites/HouseTileSet.tres" id="3_m1t8k"]
-[ext_resource type="PackedScene" uid="uid://cx5ju1d60m2e3" path="res://scenes/player.tscn" id="4_lxql2"]
 [ext_resource type="PackedScene" uid="uid://dw7oujwbjmgx5" path="res://scenes/lamp.tscn" id="5_rrigt"]
 [ext_resource type="PackedScene" uid="uid://7fqyfid6fixa" path="res://scenes/sister.tscn" id="6_f0x16"]
 [ext_resource type="PackedScene" uid="uid://3mt6d17y3igh" path="res://scenes/chair.tscn" id="7_8eo45"]
@@ -47,20 +46,6 @@ layer_1/name = "foreground"
 layer_1/z_index = 7
 layer_1/tile_data = PackedInt32Array(3670094, 1245184, 0, 3735630, 1245184, 1, 3670095, 1310720, 0, 3735631, 1310720, 1, 3670096, 1376256, 0, 3735632, 1376256, 1, 3670093, 1179648, 0, 3735629, 1179648, 1)
 
-[node name="Player" parent="." instance=ExtResource("4_lxql2")]
-position = Vector2(613, 462)
-SPEED = 60.0
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -6)
-zoom = Vector2(5, 5)
-limit_left = 490
-limit_top = 350
-limit_right = 750
-limit_bottom = 500
-position_smoothing_enabled = true
-position_smoothing_speed = 30.0
-
 [node name="OneWayPlatforms" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatforms"]
@@ -83,3 +68,13 @@ position = Vector2(625, 462)
 
 [node name="Chair" parent="." instance=ExtResource("7_8eo45")]
 position = Vector2(613, 456)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(613, 456)
+zoom = Vector2(5, 5)
+limit_left = 490
+limit_top = 350
+limit_right = 750
+limit_bottom = 500
+position_smoothing_enabled = true
+position_smoothing_speed = 30.0

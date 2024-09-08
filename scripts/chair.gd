@@ -5,7 +5,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	chair_sat.visible = false
+	chair_sat.visible = true
+	Dialogic.signal_event.connect(_on_dialogic_signal)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -24,3 +25,7 @@ func _on_interactable_interacted():
 		player.visible = false
 		#get_tree().paused = true
 		player.controls_enabled = false
+
+func _on_dialogic_signal(argument: String):
+	if argument == "start_game_end":
+		chair_sat.visible = false

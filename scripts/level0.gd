@@ -5,6 +5,7 @@ const PLAYER_POSITION = Vector2(613,462)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Dialogic.signal_event.connect(_on_dialogic_signal)
+	Dialogic.start("start_game")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
