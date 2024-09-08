@@ -13,6 +13,7 @@ extends CharacterBody2D
 @export var WINDUP_SPEED = 1 # Horizontal speed during windup/telegraphing animations
 
 const PROJECTILE_OFFSET = Vector2(-20, -10) # Point of origin for web projectiles
+const TELEPORT_OFFSET = Vector2(0, -15)
 var direction = 1  # Start by moving right
 var is_alive = true
 const PLAYER_AIM_OFFSET = Vector2(0, -10) # Offset used to aim at the player's center mass
@@ -25,6 +26,7 @@ const PLAYER_AIM_OFFSET = Vector2(0, -10) # Offset used to aim at the player's c
 @onready var collision_shape = $CollisionShape2D
 @onready var hitbox_collision_shape = $HitBox/CollisionShape2D
 @onready var web_projectile = load('res://scenes/projectile_web.tscn')
+@onready var teleport_scene = load('res://scenes/teleport.tscn')
 @onready var animation_player = $AnimatedSprite2D/AnimationPlayer
 
 var player = null
@@ -233,7 +235,9 @@ func _on_health_health_depleted():
 	queue_free()
 	
 	# create portal
-
+	var teleport_instance = teleport_scene.instantiate()
+	teleport_instance.position = global_position + TELEPORT_OFFSET  # Apply the teleport offset
+	get_parent().add_child(teleport_instance)
 
 func _on_health_health_changed(diff):
 	# play audio
