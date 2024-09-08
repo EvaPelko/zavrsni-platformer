@@ -4,7 +4,7 @@ var save_path = "res://player1.data"
 #var game_saved = false
 
 var score = 0
-var current_level = "res://scenes/level1.tscn"
+var current_level = "res://scenes/level0.tscn"
 var last_menu = "main menu"
 
 @onready var warning_label = $CanvasLayer/MarginContainer/Warning
@@ -105,7 +105,7 @@ func delete_data():
 	
 	saved_game.health = Player_Health.max_health
 	saved_game.score = 0
-	saved_game.current_level = "res://scenes/level1.tscn"
+	saved_game.current_level = "res://scenes/level0.tscn"
 	
 	ResourceSaver.save(saved_game, "user://savegame.tres")
 #	var file = FileAccess.open(save_path, FileAccess.WRITE)

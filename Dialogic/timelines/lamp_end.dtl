@@ -1,0 +1,4 @@
+lamp: You've reached the end
+player: What happens now?
+lamp: You do know this is all a LIE
+[signal arg="end_game"]

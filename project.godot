@@ -31,6 +31,7 @@ directories/dch_directory={
 "sister": "res://Dialogic/characters/sister.dch"
 }
 directories/dtl_directory={
+"lamp_end": "res://Dialogic/timelines/lamp_end.dtl",
 "lamp_intro": "res://Dialogic/timelines/lamp_intro.dtl"
 }
 glossary/default_case_sensitive=true

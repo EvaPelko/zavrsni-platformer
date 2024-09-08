@@ -31,7 +31,7 @@ func _on_quit_pressed():
 
 func _on_new_game_pressed():
 	GameManager.show_fade_label("Starting new game", global_position)
-	get_tree().change_scene_to_file("res://scenes/level1.tscn")
+	get_tree().change_scene_to_file("res://scenes/level0.tscn")
 	GameManager.delete_data()
 	GameManager.load_data()
 	GameManager.show_ui()

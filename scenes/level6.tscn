@@ -43,7 +43,7 @@ position = Vector2(-14, -84)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(1, -8)
-zoom = Vector2(3.5, 3.5)
+zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 position_smoothing_speed = 30.0
 script = ExtResource("4_22dna")
