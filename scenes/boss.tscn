@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://baoyjuljlmt1n"]
+[gd_scene load_steps=57 format=3 uid="uid://baoyjuljlmt1n"]
 
 [ext_resource type="Texture2D" uid="uid://cuiob0moarilm" path="res://my assets/sprites/NPCs/enemies/boss/glitch-boss-bite-Sheet.png" id="1_hbrm4"]
 [ext_resource type="Script" path="res://scripts/boss.gd" id="1_qg5gu"]
@@ -309,8 +309,29 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_uog5w"]
+resource_name = "flash"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hgxjs"]
+_data = {
+"flash": SubResource("Animation_uog5w")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2l56"]
-size = Vector2(33, 39)
+size = Vector2(33, 54)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t0m0f"]
 radius = 112.071
@@ -332,8 +353,13 @@ animation = &"run"
 autoplay = "idle"
 frame_progress = 0.486041
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_hgxjs")
+}
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.49999, -16.5)
+position = Vector2(-1.00136e-05, -16.5)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_s2l56")
 
@@ -355,6 +381,7 @@ shape = SubResource("RectangleShape2D_k7ycp")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("7_4pyfh")
+max_health = 10
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(22, -13)
@@ -379,4 +406,5 @@ bus = &"SFX"
 
 [connection signal="body_entered" from="DetectionArea2D" to="." method="_on_detection_area_2d_body_entered"]
 [connection signal="body_exited" from="DetectionArea2D" to="." method="_on_detection_area_2d_body_exited"]
+[connection signal="health_changed" from="Health" to="." method="_on_health_health_changed"]
 [connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]

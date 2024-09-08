@@ -32,7 +32,7 @@ func _on_area_2d_body_entered(body):
 		audio_player.play()
 		queue_free()
 		
-	if body.is_in_group("player"):
+	elif body.is_in_group("player"):
 		print("web hit player and took damage")
 		Player_Health.health -= DAMAGE
 		audio_player.play()

@@ -25,6 +25,7 @@ const PLAYER_AIM_OFFSET = Vector2(0, -10) # Offset used to aim at the player's c
 @onready var collision_shape = $CollisionShape2D
 @onready var hitbox_collision_shape = $HitBox/CollisionShape2D
 @onready var web_projectile = load('res://scenes/projectile_web.tscn')
+@onready var animation_player = $AnimatedSprite2D/AnimationPlayer
 
 var player = null
 var initial_collision_shape_pos = null
@@ -135,7 +136,7 @@ func set_state(new_state):
 			
 		State.SHOOT:
 			animated_sprite.play("shoot")
-			velocity.x = velocity.x/abs(velocity.x)
+			velocity.x = sign(velocity.x) * WINDUP_SPEED
 			
 			# Await two frame changes to sync up the spawning of the projectile with the animation
 			await animated_sprite.frame_changed
@@ -230,3 +231,11 @@ func _on_health_health_depleted():
 	set_state(State.DEAD)
 	await animated_sprite.animation_finished
 	queue_free()
+	
+	# create portal
+
+
+func _on_health_health_changed(diff):
+	# play audio
+	audio_player.play()
+	animation_player.play('flash')
