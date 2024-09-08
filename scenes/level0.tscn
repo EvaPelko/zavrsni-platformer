@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://s22v4ofo4p5q"]
+[gd_scene load_steps=11 format=3 uid="uid://s22v4ofo4p5q"]
 
+[ext_resource type="Script" path="res://scripts/level0.gd" id="1_0v6lh"]
 [ext_resource type="Texture2D" uid="uid://dln8hs3tckeju" path="res://my assets/sprites/background tall blue.png" id="1_wa6mm"]
 [ext_resource type="TileSet" uid="uid://bltmkh2iiav4l" path="res://my assets/sprites/WorldTileSet.tres" id="2_y4trw"]
 [ext_resource type="TileSet" uid="uid://cvho75d1mlfg5" path="res://my assets/sprites/HouseTileSet.tres" id="3_m1t8k"]
@@ -17,6 +18,7 @@ a = Vector2(9, -3)
 b = Vector2(-9, 13)
 
 [node name="level0" type="Node2D"]
+script = ExtResource("1_0v6lh")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 110.0

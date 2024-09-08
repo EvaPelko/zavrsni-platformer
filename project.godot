@@ -26,13 +26,16 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"dad": "res://Dialogic/characters/dad.dch",
 "lamp": "res://Dialogic/characters/lamp.dch",
+"mom": "res://Dialogic/characters/mom.dch",
 "player": "res://Dialogic/characters/player.dch",
 "sister": "res://Dialogic/characters/sister.dch"
 }
 directories/dtl_directory={
 "lamp_end": "res://Dialogic/timelines/lamp_end.dtl",
-"lamp_intro": "res://Dialogic/timelines/lamp_intro.dtl"
+"lamp_intro": "res://Dialogic/timelines/lamp_intro.dtl",
+"start_game": "res://Dialogic/timelines/start_game.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://Dialogic/custom.tres", "res://my assets/sprites/visual_novel.tres"]

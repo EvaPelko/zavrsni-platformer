@@ -1,0 +1,8 @@
+mom: Lovely dinner we're having.
+dad: Compliments to the chef.
+sister: No, it could've been better...
+player: You're always so hard on yourself, sis.
+sister: Yeah, but ever since we moved, the ingredients are different.
+player: What do you mean?
+sister: Wait, is the light flickering?
+[signal arg="start_game_end"]
