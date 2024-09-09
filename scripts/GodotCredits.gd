@@ -34,7 +34,8 @@ var credits = [
 		"Eva Pelko"
 	],[	
 		"Music",
-		"Brackeys, Sofia Thirslund"
+		"Brackeys, Sofia Thirslund",
+		"Mario Fukuoka"
 	],[	
 		"Sound Effects",
 		"Brackeys, Asbjørn Thirslund",

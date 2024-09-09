@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://gscxe0oo5ufu"]
+[gd_scene load_steps=14 format=3 uid="uid://gscxe0oo5ufu"]
 
+[ext_resource type="Script" path="res://scenes/level5.gd" id="1_k47m7"]
 [ext_resource type="Texture2D" uid="uid://dywsycsi716wf" path="res://my assets/sprites/dirt bg - darker.png" id="1_vget6"]
 [ext_resource type="TileSet" uid="uid://bltmkh2iiav4l" path="res://my assets/sprites/WorldTileSet.tres" id="2_klb27"]
 [ext_resource type="PackedScene" uid="uid://cx5ju1d60m2e3" path="res://scenes/player.tscn" id="3_n6lrr"]
@@ -18,6 +19,7 @@ size = Vector2(45.25, 5)
 
 [node name="level5" type="Node2D"]
 process_mode = 1
+script = ExtResource("1_k47m7")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -80,6 +82,21 @@ position = Vector2(183, -170)
 
 [node name="Coin7" parent="Lemons" instance=ExtResource("5_oqhmg")]
 position = Vector2(132, -69)
+
+[node name="Coin9" parent="Lemons" instance=ExtResource("5_oqhmg")]
+position = Vector2(224, -27)
+
+[node name="Coin11" parent="Lemons" instance=ExtResource("5_oqhmg")]
+position = Vector2(534, -26)
+
+[node name="Coin13" parent="Lemons" instance=ExtResource("5_oqhmg")]
+position = Vector2(263, -60)
+
+[node name="Coin12" parent="Lemons" instance=ExtResource("5_oqhmg")]
+position = Vector2(460, -52)
+
+[node name="Coin10" parent="Lemons" instance=ExtResource("5_oqhmg")]
+position = Vector2(343, -28)
 
 [node name="Flying enemy" type="Node" parent="."]
 

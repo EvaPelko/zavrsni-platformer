@@ -1,9 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5wlqktqef8pt"]
+[gd_scene load_steps=4 format=3 uid="uid://b5wlqktqef8pt"]
 
 [ext_resource type="AudioStream" uid="uid://dxn7fww3eqlwh" path="res://assets/music/time_for_adventure.mp3" id="1_tpoc0"]
+[ext_resource type="Script" path="res://scenes/music.gd" id="2_hrtmv"]
+[ext_resource type="AudioStream" uid="uid://dr1unb4dgdkml" path="res://my assets/bossfight.mp3" id="3_gcvhp"]
 
-[node name="Music" type="AudioStreamPlayer2D"]
+[node name="Music" type="Node2D"]
 process_mode = 3
+script = ExtResource("2_hrtmv")
+
+[node name="Bossfight" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gcvhp")
+volume_db = -21.174
+bus = &"Music"
+
+[node name="Maintheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_tpoc0")
+volume_db = -17.437
 autoplay = true
 bus = &"Music"

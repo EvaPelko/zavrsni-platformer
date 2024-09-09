@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdfq2lo73rnvs"]
+[gd_scene load_steps=9 format=3 uid="uid://bdfq2lo73rnvs"]
 
 [ext_resource type="Texture2D" uid="uid://dywsycsi716wf" path="res://my assets/sprites/dirt bg - darker.png" id="1_1kngt"]
+[ext_resource type="Script" path="res://scenes/level6.gd" id="1_4mxj8"]
 [ext_resource type="TileSet" uid="uid://bltmkh2iiav4l" path="res://my assets/sprites/WorldTileSet.tres" id="2_4sxq7"]
 [ext_resource type="PackedScene" uid="uid://cx5ju1d60m2e3" path="res://scenes/player.tscn" id="3_71366"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="4_22dna"]
@@ -11,6 +12,7 @@
 
 [node name="level6" type="Node2D"]
 process_mode = 1
+script = ExtResource("1_4mxj8")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

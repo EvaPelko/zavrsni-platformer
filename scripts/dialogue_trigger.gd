@@ -21,5 +21,4 @@ func _on_dialogic_signal(argument: String):
 
 
 func _on_body_exited(body):
-	if body.is_in_group("player") and interactable:
-		Dialogic.stop()
+	pass # Replace with function body.

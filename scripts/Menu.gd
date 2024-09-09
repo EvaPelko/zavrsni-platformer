@@ -1,8 +1,5 @@
 extends Control
 
-
-
-
 func _on_continue_pressed():
 	GameManager.load_data()
 	var scene_number = int(GameManager.current_level)
