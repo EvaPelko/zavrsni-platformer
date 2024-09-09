@@ -13,7 +13,8 @@ config_version=5
 config/name="zavrsni platformer"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://my assets/lock-zero-icon.ico"
+config/icon="res://my assets/lock-zero.png"
+config/windows_native_icon="res://my assets/lock-zero.ico"
 
 [autoload]
 

@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4kshxr18yios"]
+[gd_scene load_steps=8 format=3 uid="uid://c4kshxr18yios"]
 
 [ext_resource type="Script" path="res://scripts/Menu.gd" id="1_lpuey"]
+[ext_resource type="Shader" path="res://scripts/scroll.gdshader" id="2_16yf7"]
 [ext_resource type="Texture2D" uid="uid://dln8hs3tckeju" path="res://my assets/sprites/background tall blue.png" id="2_agr5i"]
 [ext_resource type="Texture2D" uid="uid://clcli6ahfble6" path="res://my assets/ui/main menu/happy palette/TITLE.png" id="2_pdpoy"]
 [ext_resource type="Theme" uid="uid://b5xvr6yqu4j4o" path="res://assets/Default.tres" id="3_08tw8"]
 [ext_resource type="FontFile" uid="uid://mlgwk6ivoocr" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_qy0ks"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2b3uy"]
+shader = ExtResource("2_16yf7")
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -32,6 +36,7 @@ offset_bottom = 140.0
 color = Color(0.192157, 0.27451, 0.384314, 1)
 
 [node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_2b3uy")
 layout_mode = 0
 offset_left = -397.0
 offset_top = 15.0

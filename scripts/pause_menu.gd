@@ -13,7 +13,8 @@ func _process(delta):
 	pass
 	
 func _on_game_level_manager_toggle_game_paused(is_paused : bool):
-	if(is_paused):
+	print(Dialogic.current_timeline != null)
+	if(is_paused and Dialogic.current_timeline == null):
 		show()
 	else:
 		hide()
