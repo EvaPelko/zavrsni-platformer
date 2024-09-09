@@ -13,4 +13,4 @@ func _on_body_entered(body):
 		GameManager.save()
 
 func _change_scene(next_scene_path):
-	get_tree().change_scene_to_file(next_scene_path)
+	SceneTransition.change_scene_to_file(next_scene_path)

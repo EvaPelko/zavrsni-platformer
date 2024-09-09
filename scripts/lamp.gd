@@ -21,17 +21,18 @@ func _on_interactable_interacted():
 func _on_dialogic_signal(argument: String):
 	if argument == "finished_intro":
 		print("Dialog finished, changing to level 1")
-		get_tree().change_scene_to_file("res://scenes/level1.tscn")
+		SceneTransition.change_scene_to_file("res://scenes/level1.tscn")
 		var current_scene_name = str(current_scene.name)
 		var next_scene_number = int(current_scene_name) + 1
 		var next_scene_path = "res://scenes/level" + str(next_scene_number) + ".tscn"
 		GameManager.current_level = next_scene_path
 		print(GameManager.current_level)
 		GameManager.show_fade_label("Saving game... switching levels...", global_position)
-		call_deferred("_change_scene", next_scene_path)
+		#call_deferred("_change_scene", next_scene_path)
 		GameManager.save()
 		
 	if argument == "end_game":
 		print("end game")
 		get_tree().change_scene_to_file("res://scenes/GodotCredits.tscn")
 		GameManager.delete_data()
+		

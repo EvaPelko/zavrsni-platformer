@@ -28,33 +28,35 @@ var credits = [
 		"A game by Eva Pelko"
 	],[	
 		"Programming",
-		"Programmer Name",
-		"Programmer Name 2"
+		"Eva Pelko",
 	],[	
 		"Art",
-		"Artist Name"
+		"Eva Pelko"
 	],[	
 		"Music",
-		"Musician Name"
+		"Brackeys, Sofia Thirslund"
 	],[	
 		"Sound Effects",
-		"SFX Name"
+		"Brackeys, Asbjørn Thirslund",
+		"sebastientate"
 	],[	
 		"Testers",
-		"Name 1",
-		"Name 2",
-		"Name 3"
+		"Mario Fukuoka",
+		"Perluc"
 	],[	
 		"Tools used",
 		"Developed with Godot Engine",
-		"https://godotengine.org/license",
+		"https://godotengine.org/",
 		"",
 		"Art created with Aseprite",
 		"https://www.aseprite.org/"
 	],[	
 		"Special thanks",
-		"My parents",
-		"My friends"
+		"My friends",
+		"Godot discord community"
+	],
+	[
+		"2024"
 	]
 ]
 

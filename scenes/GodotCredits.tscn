@@ -28,5 +28,5 @@ offset_bottom = 674.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_qjyea")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
 text = "Credits line"
