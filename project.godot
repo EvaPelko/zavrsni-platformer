@@ -62,6 +62,10 @@ save/encryption_on_exports_only=true
 text/autopauses={}
 portraits/default_portrait=""
 
+[display]
+
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")

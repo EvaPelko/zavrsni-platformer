@@ -11,7 +11,7 @@ offset_left = -441.0
 offset_top = -169.0
 offset_right = 1657.0
 offset_bottom = 976.0
-color = Color(0.14902, 0.203922, 0.345098, 1)
+color = Color(0.0520295, 0.0812201, 0.156472, 1)
 
 [node name="CreditsContainer" type="Control" parent="."]
 layout_mode = 3

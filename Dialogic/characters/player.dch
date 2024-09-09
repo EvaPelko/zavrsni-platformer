@@ -17,7 +17,7 @@
 "portraits": {
 "New portrait": {
 "export_overrides": {
-"image": "\"res://my assets/sprites/player - animated-duck.png\""
+"image": "\"res://my assets/sprites/player.png\""
 },
 "mirror": false,
 "offset": Vector2(0, -10),

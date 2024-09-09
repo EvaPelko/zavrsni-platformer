@@ -34,3 +34,4 @@ func _on_dialogic_signal(argument: String):
 	if argument == "end_game":
 		print("end game")
 		get_tree().change_scene_to_file("res://scenes/GodotCredits.tscn")
+		GameManager.delete_data()
