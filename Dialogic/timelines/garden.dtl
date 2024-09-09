@@ -1,0 +1,3 @@
+player: That looks like my sister's garden...
+player: I hope she's alright.
+[signal arg="garden_end"]

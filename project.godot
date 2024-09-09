@@ -13,7 +13,7 @@ config_version=5
 config/name="zavrsni platformer"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://my assets/lock-zero-icon.ico"
 
 [autoload]
 
@@ -34,9 +34,12 @@ directories/dch_directory={
 "sister": "res://Dialogic/characters/sister.dch"
 }
 directories/dtl_directory={
+"garden": "res://Dialogic/timelines/garden.dtl",
 "lamp_end": "res://Dialogic/timelines/lamp_end.dtl",
 "lamp_intro": "res://Dialogic/timelines/lamp_intro.dtl",
-"start_game": "res://Dialogic/timelines/start_game.dtl"
+"lamp_seen": "res://Dialogic/timelines/lamp_seen.dtl",
+"start_game": "res://Dialogic/timelines/start_game.dtl",
+"tutorial_start": "res://Dialogic/timelines/tutorial_start.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://Dialogic/custom.tres", "res://my assets/sprites/visual_novel.tres"]

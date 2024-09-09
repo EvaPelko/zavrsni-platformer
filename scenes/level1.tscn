@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://d4b2htqt3ulka"]
+[gd_scene load_steps=16 format=3 uid="uid://d4b2htqt3ulka"]
 
+[ext_resource type="Script" path="res://scenes/level1.gd" id="1_2wghl"]
 [ext_resource type="FontFile" uid="uid://ccqeo75plmx8k" path="res://assets/fonts/PixelOperator8.ttf" id="3_u5iuo"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="4_2va4g"]
 [ext_resource type="Texture2D" uid="uid://dln8hs3tckeju" path="res://my assets/sprites/background tall blue.png" id="4_ykbbh"]
@@ -20,6 +21,7 @@ size = Vector2(32.5, 5)
 
 [node name="level1" type="Node2D"]
 process_mode = 1
+script = ExtResource("1_2wghl")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

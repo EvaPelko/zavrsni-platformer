@@ -304,6 +304,3 @@ position = Vector2(949, 88)
 
 [node name="DisappearingLamp" parent="." instance=ExtResource("13_jg4ya")]
 position = Vector2(700, 178)
-
-[node name="DisappearingLamp2" parent="." instance=ExtResource("13_jg4ya")]
-position = Vector2(1804, 474)

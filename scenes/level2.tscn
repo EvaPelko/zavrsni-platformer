@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://chpud72myoyu3"]
+[gd_scene load_steps=17 format=3 uid="uid://chpud72myoyu3"]
 
 [ext_resource type="Texture2D" uid="uid://dln8hs3tckeju" path="res://my assets/sprites/background tall blue.png" id="1_72aca"]
 [ext_resource type="TileSet" uid="uid://bltmkh2iiav4l" path="res://my assets/sprites/WorldTileSet.tres" id="2_al604"]
@@ -12,11 +12,15 @@
 [ext_resource type="PackedScene" uid="uid://cawwc131jlg28" path="res://scenes/killzone.tscn" id="9_k2pgq"]
 [ext_resource type="PackedScene" uid="uid://dyh7lyne2bdpl" path="res://scenes/heart.tscn" id="10_snf73"]
 [ext_resource type="PackedScene" uid="uid://b3ih1l88y0nba" path="res://scenes/disappearing_lamp.tscn" id="12_xot2c"]
+[ext_resource type="Script" path="res://scripts/dialogue_trigger.gd" id="13_5srmd"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7358v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1sx5"]
 size = Vector2(128, 4.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p6t4s"]
+radius = 32.3883
 
 [node name="level2" type="Node2D"]
 process_mode = 1
@@ -163,4 +167,16 @@ position = Vector2(1355, -23)
 position = Vector2(1490, 2)
 
 [node name="DisappearingLamp" parent="." instance=ExtResource("12_xot2c")]
-position = Vector2(1458, 10)
+position = Vector2(932, 18)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("13_5srmd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(126, 42)
+shape = SubResource("CircleShape2D_p6t4s")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

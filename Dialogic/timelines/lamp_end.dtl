@@ -1,4 +1,18 @@
-lamp: You've reached the end
+lamp: You've reached the end.
 player: What happens now?
-lamp: You do know this is all a LIE
+lamp: You haven't noticed, have you?
+lamp: You're never seeing your family again.
+- Attack
+	lamp: Resistence is futile.
+- Plead
+	I'm sorry, little one.
+lamp: You've been living in a simulation.
+lamp: I encontered an error that opened a rip in the matrix, and you found out. Yet again.
+player: Again?
+lamp: You have to make that choice again.
+- Remember
+	lamp: Existence is torturous enough as it is, but as you wish.
+- Forget
+	lamp: Very well.
+*GAME OVER*
 [signal arg="end_game"]
