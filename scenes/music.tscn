@@ -10,7 +10,7 @@ script = ExtResource("2_hrtmv")
 
 [node name="Bossfight" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_gcvhp")
-volume_db = -21.174
+volume_db = -12.156
 bus = &"Music"
 
 [node name="Maintheme" type="AudioStreamPlayer" parent="."]
